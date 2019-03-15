@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;Python3/src/23 Miscellaneous Topics/PDF Manipulation/pdfs/simple.pdf&apos;" deleteContents="false" description="Delete resource &apos;Python3/src/23 Miscellaneous Topics/PDF Manipulation/pdfs/simple.pdf&apos;" element1="/Python3/src/23 Miscellaneous Topics/PDF Manipulation/pdfs/simple.pdf" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1542752449265"/>
-</session>

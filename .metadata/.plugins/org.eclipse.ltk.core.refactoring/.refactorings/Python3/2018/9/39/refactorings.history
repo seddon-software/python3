@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Python3/src/23 Miscellaneous Topics/Cryptology.py&apos; to &apos;Cryptology&apos;" description="Rename resource &apos;Cryptology.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/23 Miscellaneous Topics/Cryptology.py" name="Cryptology" stamp="1538342015711" updateReferences="true"/>
-</session>
