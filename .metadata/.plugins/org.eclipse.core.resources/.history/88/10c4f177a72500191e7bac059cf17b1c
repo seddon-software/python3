@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, (ax1, ax2) = plt.subplots(1, columns)
+
+plt.figure(figsize=(10,4), dpi=120) # 10 is width, 4 is height
+
+# Left hand side plot
+plt.subplot(1,2,1)  # (nRows, nColumns, axes number to plot)
+plt.plot([1,2,3,4,5], [1,2,3,4,10], 'go')  # green dots
+plt.title('Scatterplot Greendots')  
+plt.xlabel('X'); plt.ylabel('Y')
+plt.xlim(0, 6); plt.ylim(0, 12)
+
+# Right hand side plot
+plt.subplot(1,2,2)
+plt.plot([1,2,3,4,5], [2,3,4,5,11], 'b*')  # blue stars
+plt.title('Scatterplot Bluestars')  
+plt.xlabel('X'); plt.ylabel('Y')
+plt.xlim(0, 6); plt.ylim(0, 12)
+plt.show()

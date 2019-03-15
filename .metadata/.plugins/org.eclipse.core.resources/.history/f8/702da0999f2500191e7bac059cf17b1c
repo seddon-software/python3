@@ -1,0 +1,19 @@
+############################################################
+#
+#    simple plot
+#
+############################################################
+
+
+import matplotlib.pyplot as plt
+
+rows = 1
+columns = 1
+fig, ax = plt.subplot(rows, columns, 1) # first plot
+
+redCircles = "ro"
+ax.plot([1,2,3,4], [1,4,9,16], redCircles)
+ax.axis([0, 6, 0, 20])
+ax.set_ylabel("squares")
+plt.show()
+
