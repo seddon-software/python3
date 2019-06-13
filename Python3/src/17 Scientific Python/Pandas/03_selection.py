@@ -9,7 +9,7 @@ def main():
     medal_table = pd.read_csv("data/olympics_2012_medal_table.txt",
                                engine = 'python',
                                skiprows = 1,
-                               encoding = 'UTF-8', 
+#                               encoding = 'UTF-8', 
                                sep = '[ )(]{2,}')
     korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"]
     korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"].as_matrix()[0]

@@ -1,0 +1,25 @@
+Jupyter Notebook
+================
+module load python/3
+module load ipython
+ipython -V
+ipython notebook &
+
+
+Loading Python
+==============
+module load python/ana
+python -V
+module avail python
+
+
+
+
+Python 3 Examples
+=================
+git clone https://github.com/seddon-software/python3.git
+
+Python 2 Examples
+=================
+git clone https://git.assembla.com/python-examples.git
+

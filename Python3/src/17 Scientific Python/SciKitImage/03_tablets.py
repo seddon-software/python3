@@ -54,7 +54,7 @@ for i in range(5, 60, 5):
     plt.imshow(edges, cmap=plt.cm.gray)
     plt.show()
 
-# chose best parametrs
+# choose best parametrs
 sigma = 4
 low = 40/256.0
 high = 45/256.0

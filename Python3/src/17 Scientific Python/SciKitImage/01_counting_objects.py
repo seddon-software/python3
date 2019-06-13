@@ -28,7 +28,9 @@ data = np.vstack((data, data))
 data = np.hstack((data, data))
 # data = np.vstack((data, data))
 # data = np.hstack((data, data))
+data = data.astype(np.float_)
 
+# this is not true in the latest version 
 set_title("plot uses interpolation by default")
 plt.imshow(data)
 plt.show()

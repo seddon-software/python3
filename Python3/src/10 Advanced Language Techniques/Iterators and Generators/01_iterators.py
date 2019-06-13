@@ -20,8 +20,17 @@ class Fibonacci:
         self.x, self.y = self.y, self.x + self.y
         return self.x
 
-iter = Fibonacci()
-
+# iter = Fibonacci()
+# 
+# print(iter.__iter__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
+# print(iter.__next__())
 
 # create an instance of class and invoke iterator methods
 # __iter__(self) will be called once

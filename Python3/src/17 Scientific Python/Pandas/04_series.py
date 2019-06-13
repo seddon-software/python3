@@ -12,9 +12,10 @@ pd.set_option('display.precision', 2)
 
 ##########
 title("create a series")
-s = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=['A', 'B', 'C', 'D', 'E'])
-s = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=range(10, 20, 2))
-print(s)
+s1 = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=['A', 'B', 'C', 'D', 'E'])
+s2 = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=range(10, 20, 2))
+print(s1, end="\n\n")
+print(s2, end="\n\n")
 
 ##########
 title("create a series from a dict")
@@ -59,14 +60,13 @@ print(salaries / 3)
 title("add series together")
 s1 = salaries[['john', 'pedro']]
 s2 = salaries[['zoe']]
-s = s1 + s2
-print(s)
 s = s1.add(s2, fill_value=0)
 print(s)
 
 ##########
-title("check for nulls in series")
+title("check for non-nulls in series")
 salaries['mary'] = None
 print(salaries.notnull())
+title("check for nulls in series")
 print(salaries.isnull())
 print(salaries[salaries.isnull()])
