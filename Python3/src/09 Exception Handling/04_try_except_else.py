@@ -6,12 +6,13 @@
 
 from math import sqrt
  
-x = int(input("Enter positive integer: "))
 
 try:
+    x = int(input("Enter positive integer: "))
     root = sqrt(x)
-except:
+except Exception as e:
     print("sqrt() failed ...")
+    print(e)
 else:
     print("sqrt() succeeded ...")
     print(root)

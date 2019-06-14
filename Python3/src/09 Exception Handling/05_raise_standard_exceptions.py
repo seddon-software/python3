@@ -4,15 +4,14 @@
 #
 ############################################################
 
-array = [1,2,3,-4,5,6]
+array = [0,1,2,3,-4,5,6]
 
 try:
     for x in array:
         if x < 0: 
             raise ValueError("array index is negative!")
-        print(x, end=' ')
-except ValueError as value:
-    print()
-    print("... entering except block: " + str(value))
+        print(array[x], end=' ')
+except ValueError as e:
+    print(f"\n... entering except block: {e}")
 
 

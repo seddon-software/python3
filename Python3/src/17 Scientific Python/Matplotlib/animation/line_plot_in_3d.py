@@ -35,8 +35,7 @@ def animate(i):
     x = 2*t**3+1
     y = 2*t**2
     z = t
-
-
+    
     # there is no set_data for 3D, so you have to do it this way
     line.set_data(x, y)
     line.set_3d_properties(z)
