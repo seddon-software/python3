@@ -1,7 +1,7 @@
 import sys
 from distutils.core import setup, Extension
 
- 
+
 mymodule = Extension('greeting',
         include_dirs = ['/Users/seddon/work/boost_1_57_0'],
         libraries = ['boost_python3'],
