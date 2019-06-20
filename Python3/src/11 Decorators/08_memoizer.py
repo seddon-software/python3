@@ -13,4 +13,10 @@ def memoize(f):
 def fib(n):
     return n if n < 2 else fib(n-1) + fib(n-2)
 
-print( fib(8) )
+def Fib(n):
+    return n if n < 2 else fib(n-1) + fib(n-2)
+
+import timeit, sys
+sys.setrecursionlimit(20000)  
+print( f"with memoize: {timeit.timeit(stmt='fib(6000)', setup='from __main__ import fib', number=1000000)}" )
+print( f"using recursion: {timeit.timeit(stmt='Fib(6000)', setup='from __main__ import Fib', number=1000000)}" )
