@@ -2,16 +2,11 @@
 
 def getFileContents(filename):
     try: 
-        f = open(filename, "r")
-        allLines = f.readlines()
+        with open(filename, "r") as f:
+            allLines = f.readlines()
         return allLines
     except IOError as e:
         print(e)
-    finally:
-        try: 
-            f.close()
-        except: 
-            pass    # can't do anything if close throws
 
 
 salary = {}

@@ -4,8 +4,6 @@
 #
 ############################################################
 
-from __future__ import with_statement # not required in Python 2.6
-
 # successful read
 try:
     with open("data/hello.txt", "r") as f:

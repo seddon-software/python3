@@ -5,7 +5,7 @@
 ############################################################
 
 # 3 different ways of working with binary data:
-#    1. use str
+#    1. use bytes
 #    2. use bytearray
 #    3. use struct
 
@@ -45,7 +45,6 @@ print(('Before  :', binascii.hexlify(stringBuffer.raw)))
 data = b"\x5F\x9D\x3E\x5F\x00\x00\x00\x00\x9D\x3E\x5F\x9D\x3E\x5F\x9D\x3E\x5F\x9D\x3E"
 rawBuffer.pack_into(stringBuffer, 0, data)
 print(('After  :', binascii.hexlify(stringBuffer.raw)))
-
 writeBinary('data/myfile-3.bin', stringBuffer)
 
 
