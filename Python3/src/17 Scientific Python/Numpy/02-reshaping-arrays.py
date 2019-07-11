@@ -13,7 +13,7 @@ b = a.reshape(2,3,4); print(b)
 a[13] = 99
 print(a)
 print(b)
-# display properties
+# display properties held in the view
 print(type(b))
 print("Shape:", b.shape)
 print("Dimensions:", b.ndim)

@@ -5,6 +5,7 @@ from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib.animation import FuncAnimation
 from math import sqrt
 
+
 def update_plot(frame, data, sc):
     sc._offsets3d = data[frame]
     return sc

@@ -34,10 +34,5 @@ a = np.arange(4.0,6.0,0.1); print(a)
 a = np.linspace(-50.0,50.0,5); print(a)
 a = np.linspace(-50.0,50.0,7); print(a)
 
-# use a function
-a = np.fromfunction(lambda i,j: (i+2)*(j+2), (3,3))
-print(a)
-a = np.fromfunction(lambda i,j,k: i + j + k, (4,2,3))
-print(a)
 
 1

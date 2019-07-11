@@ -6,21 +6,19 @@
 
 import numpy as np
 
-X = np.arange(1,5)
+X = np.arange(1,7)
 Y = np.arange(1,5)
 print("X and Y are 1D arrays")
 print(X)
 print(Y)
 
-# convert to 2D arrays
-X = X[:,None]      # newaxis and None are interchangeable
-Y = Y[np.newaxis,:]
-print("\nX and Y are now 2D arrays")
-print(X)
+Y = np.vstack(Y)
+print("\nY is now a 2D array")
 print(Y)
+print("\nX is still a 1D array")
+print(X)
 
-# generate 2D grid of values
-print("\nbroadcast X and Y")
+print("\nbroadcast X and Y, because arrays are different sizes")
 M = X * Y 
 print(M)
 

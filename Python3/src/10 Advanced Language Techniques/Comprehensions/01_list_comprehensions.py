@@ -37,5 +37,4 @@ def isprime(num):
     return not [y for y in range(2,num) if num%y==0]
 
 print([x for x in range(2,1000) if isprime(x)])
-print([x for x in range(2,1000) if lambda z:not [y for y in range(2,z) if z%y==0](x)])
 1

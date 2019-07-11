@@ -17,7 +17,7 @@ def set_title(title):
 
 def enhanceImage(image, threshold):
     image[ image[:,:] <= threshold ] = 0
-    image[ image[:,:]  > threshold ] = 1
+    image[ image[:,:]  > threshold ] = 255
     
 rice = load_image("images/rice.jpg")
 print("Shape of raw image: {}".format(rice.shape))

@@ -1,9 +1,31 @@
+Module Loads
+============
+module avail python
+module load python/3.7
+python -V
+module load ipython
+
+Eclipse
+=======
+module load eclipse
+eclipse &
+
 Jupyter Notebook
 ================
-module load python/3
-module load ipython
 ipython -V
 ipython notebook &
+
+
+
+
+
+
+
+
+
+jobs
+^Z
+bg
 
 
 Loading Python
@@ -17,6 +39,7 @@ module avail python
 
 Python 3 Examples
 =================
+cd
 git clone https://github.com/seddon-software/python3.git
 
 Python 2 Examples
