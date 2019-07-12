@@ -43,7 +43,7 @@ def animate(i):
 
 
 anim = animation.FuncAnimation(fig, animate, init_func=init, frames=10000, \
-                               interval=200)
+                               interval=50)
 
 plt.show()
 

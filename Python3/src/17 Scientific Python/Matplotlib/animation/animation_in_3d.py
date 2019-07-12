@@ -7,6 +7,8 @@ from math import sqrt
 
 
 def update_plot(frame, data, sc):
+    print(f"{data[frame][1][0]:6.2f}")
+    print("----------")
     sc._offsets3d = data[frame]
     return sc
 

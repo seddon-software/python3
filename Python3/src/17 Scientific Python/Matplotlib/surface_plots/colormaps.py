@@ -28,6 +28,6 @@ for cmap in colormaps:
     ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
     fig.colorbar(surface, shrink=0.5, aspect=5)
     plt.draw()
-    plt.pause(0.001)
+    plt.pause(0.5)
     time.sleep(0.5)
     plt.close(fig)

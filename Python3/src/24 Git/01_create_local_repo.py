@@ -1,9 +1,15 @@
 import sys
 from single_step import s
 
+
+githubUserName = "Chris Seddon"                # change this
+githubEmail = "seddon-software@keme.co.uk"      # change this
+
 # create local repo
 def windows():
-    s('deltree myrepo')
+    s(f'git config --global user.name "{githubUserName}"')
+    s(f'git config --global user.email {githubEmail}')
+    s('rd /S /Q myrepo')
     s('md myrepo')
     s('cd myrepo')
     s('git init')
@@ -14,6 +20,8 @@ def windows():
     s('git commit -m "first commit"')
 
 def unix():
+    s(f'git config --global user.name "{githubUserName}"')
+    s(f'git config --global user.email {githubEmail}')
     s('rm -rf myrepo')
     s('mkdir myrepo')
     s('cd myrepo')

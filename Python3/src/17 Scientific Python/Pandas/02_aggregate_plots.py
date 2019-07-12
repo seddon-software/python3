@@ -20,7 +20,7 @@ def main():
     oxford_data.dropna()
     
     # create a new column from year and month columns
-    oxford_data['period'] = oxford_data.apply(lambda x : (x.year//4)*4, raw = True, axis = 1)
+    oxford_data['period'] = oxford_data.apply(lambda row : (row.year//4)*4, raw = True, axis = 1)
 
     # drop columns we are not using (not necessary)
     oxford_data.drop(['year', 'month', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
