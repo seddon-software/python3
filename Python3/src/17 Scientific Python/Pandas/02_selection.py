@@ -5,14 +5,12 @@ pd.set_option('display.width', 100)
 
 
 def main():
-    # read in medal table (n.b. delimiters are at least 2 characters long) 
+    # read in medal table (n.b. delimiters contain at least 2 spaces and sometimes a bracket) 
     medal_table = pd.read_csv("data/olympics_2012_medal_table.txt",
                                engine = 'python',
                                skiprows = 1,
-#                               encoding = 'UTF-8', 
                                sep = '[ )(]{2,}')
-    korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"]
-    korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"].as_matrix()[0]
+    korean_golds = medal_table[medal_table.Id == "KOR"]["Gold"].values[0]
     print("Korea earned {} golds".format(korean_golds))
     print("\nCountries with more golds than Korea:")
     result = medal_table[medal_table.Gold > korean_golds][["Country", "Gold"]]

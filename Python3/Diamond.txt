@@ -21,28 +21,13 @@ ipython notebook &
 
 
 
-
-
-jobs
-^Z
-bg
-
-
-Loading Python
-==============
-module load python/ana
-python -V
-module avail python
-
-
-
+Anaconda Packages
+=================
+https://docs.anaconda.com/anaconda/packages/old-pkg-lists/4.3.1/py36/
 
 Python 3 Examples
 =================
 cd
 git clone https://github.com/seddon-software/python3.git
 
-Python 2 Examples
-=================
-git clone https://git.assembla.com/python-examples.git
 

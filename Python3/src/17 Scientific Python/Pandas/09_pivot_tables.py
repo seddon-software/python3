@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-pd.set_option('display.width', 1000)
+pd.set_option('display.width', None)
 pd.set_option('display.precision', 2)
 
 df = pd.read_excel("data/sales.xlsx")

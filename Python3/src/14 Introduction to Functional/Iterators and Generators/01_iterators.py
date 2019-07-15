@@ -4,8 +4,9 @@
 #
 ############################################################
 
+# There is special language support for iterator in the for of a loop
 # iterators must support two methods: __iter__ and __next__
-
+ 
 class Fibonacci:
     def __init__(self):
         self.x,self.y = 0,1
@@ -20,40 +21,35 @@ class Fibonacci:
         self.x, self.y = self.y, self.x + self.y
         return self.x
 
-# try:
-#     iter = Fibonacci()
-#      
-#     print(iter.__iter__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-#     print(iter.__next__())
-# except StopIteration as e:
-#     print(e)
     
 # create an instance of class and invoke iterator methods
 # __iter__(self) will be called once
-# __next__(self) will be called until loop terminates
+# __next__(self) will be called repeatedly until loop terminates
 
 
 for f in Fibonacci():
     print(f, end=", ")
 
 
-1
+# The above loop gets translated to:
+#
+#     try:
+#         fib = Fibonacci()
+#         iter = fib.__iter__()
+#     
+#         f = iter.__next__()
+#         print(f, end=", ")
+#     
+#         f = iter.__next__()
+#         print(f, end=", ")
+#     
+#         f = iter.__next__()
+#         print(f, end=", ")
+#     
+#         ...
+#     except StopIteration as e:
+#         pass
+
 
 
 

@@ -42,7 +42,7 @@ cp.display()
 
 cp.changeColor("Cyan")
 cp.moveBy(5,15)
-cp.Display()
+cp.display()
 
 WhereAreYou(p)
 WhereAreYou(cp)

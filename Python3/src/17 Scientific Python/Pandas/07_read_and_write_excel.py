@@ -1,6 +1,3 @@
-import pandas as pd
-import numpy as np
-
 # Reading Excel files requires the xlrd library. You can install it via pip (pip install xlrd).
 
 import pandas as pd

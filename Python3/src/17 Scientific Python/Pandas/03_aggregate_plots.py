@@ -37,7 +37,7 @@ def main():
                                kind = 'bar')
 
     ax.set_xlabel("4 year period")
-    ax.set_ylabel("$^\circ$C")
+    ax.set_ylabel(f"{chr(0x2103)}")     # degrees C
     for item in [ax. title, ax.xaxis.label, ax.yaxis.label]:
         item.set_fontsize(20)
     pl.show()

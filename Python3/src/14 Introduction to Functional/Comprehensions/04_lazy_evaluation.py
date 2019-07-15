@@ -17,7 +17,8 @@ next(myIterator)
 next(myIterator)
 print("generator comprehension DONE")
 
-# lambdas are not evaluated until called - lazy evaution
+
+# lambdas are not evaluated until called - lazy evaluation
 myLambdas = [lambda: time.sleep(5), lambda: time.sleep(5), lambda: "no sleep"]
 myLambdas[2]()
 print("lambdas DONE")
