@@ -1,18 +1,16 @@
-import sys
-from distutils.sysconfig import get_python_lib
+import subprocess,os,sys
 
+sys.path.append('../..')
+import set_paths
+os.chdir("../src")
 
-def displayInfo(baseFileName):
-    version = str(sys.version[0:3])
-    eggInfoFile = get_python_lib() + "/" + baseFileName + version + ".egg-info"
-    try:
-        f = open(eggInfoFile, 'r')
-        print(f.read())
-    except:
-        pass
-
-displayInfo("SWIG_example-1.0-py")
-
-
-from distutils.sysconfig import get_python_lib, get_config_vars
-print(get_python_lib())
+installedFiles = open("files.txt", "r")
+for file in installedFiles:
+    file = file.rstrip()
+    if file.endswith("egg-info"):
+        try:
+            f = open(file, 'r')
+            print(f.read())
+        except:
+            pass
+        

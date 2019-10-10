@@ -1,15 +1,18 @@
 import sys
 from distutils.core import setup
-from distutils.extension import Extension
 from Cython.Build import cythonize
-
+from Cython.Distutils import build_ext, Extension
 
 name = 'MyCython_Package'
 version = '2.0'
 
 extensions = [
-    Extension("*", ["*.pyx"], extra_compile_args=["-w"])
+    Extension("*", 
+              ["*.pyx"], 
+              extra_compile_args=["-w"],
+              )
 ]
+
 setup(
     name = name,
     version = version,
@@ -28,5 +31,3 @@ setup(
     ext_modules = cythonize(extensions)
 )
 
-print("setup is creating an egg info file called:")
-print("\t{}-{}-py2.7.egg-info".format(name, version))

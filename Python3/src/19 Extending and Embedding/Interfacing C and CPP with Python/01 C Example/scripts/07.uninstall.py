@@ -1,18 +1,17 @@
-import os, sys
-from distutils.sysconfig import get_python_lib, get_config_vars
+import subprocess,os,sys
 
-os.chdir(get_python_lib())
-version = sys.version[0:3]
-eggInfo = "FibonacciPackage-1.0-py" + version + ".egg-info"
-shared_object = "fibonacci" + get_config_vars("SO")[0]
+sys.path.append('../..')
+import set_paths
+os.chdir("../src")
 
-try: os.remove(eggInfo)
-except Exception as e: print(e)
+installedFiles = open("files.txt", "r")
+for file in installedFiles:
+    subprocess.call(f"rm {file}".split())
 
-try: os.remove(shared_object)
-except Exception as e: print(e)
-
-
+subprocess.call("rm files.txt".split())
+print()
 print("Example uninstalled")
+
+
 
 

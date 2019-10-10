@@ -26,12 +26,12 @@ def openTestData():
     lines = list()
     
     try:
-        inFile = open("../data/stems.txt", "r")
+        inFile = open("words.txt", "r")
     
         for line in inFile:
             lines.append(line)
-    except IOError, reason:
-        print reason
+    except IOError as reason:
+        print(reason)
     finally:        
         if inFile: inFile.close()
     
@@ -44,10 +44,10 @@ def ProcessStems():
        - element 3 contains the most popular 3 stem 
        - element 4 contains the most popular 4 stem ...
     ''' 
-    for i in range(20): #assume word never exceed 19 characters
-        popularStems.append((None, None))
+    for i in range(120): #assume word never exceed 19 characters
+        popularStems.append(("", 0))
         
-    for key, value in stems.iteritems():
+    for key, value in stems.items():
         #print key, value
         index = len(key)
         if popularStems[index][1] < value:
@@ -58,12 +58,11 @@ def PrintResults():
     '''
        popularStems contains a set of tuples
     '''
-    for i in range(2,7):
+    for i in range(2,30):
         stem = popularStems[i][0] 
         count = popularStems[i][1]
         if stem != None:
-            print "Most popular stem of size " + str(i) + " " + \
-                  stem + " (occurs " + str(count) + " times)" 
+            print(f"Most popular stem of size {i} {stem} (occurs {count} times)") 
      
 stems = dict()
 popularStems = list()

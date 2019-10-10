@@ -1,5 +1,5 @@
 import sys
-import re
+import re; re._pattern_type = re.Pattern
 from robobrowser import RoboBrowser
 import webbrowser
 import os

@@ -23,6 +23,7 @@ def communicateWithClient(newsocket, messageNo):
     # send response and close socket immediately
     response = "message {0} - {1}".format(messageNo, message.decode("UTF-8"))
     newsocket.send(response.encode("UTF-8"))
+    print(f"closing {newsocket}")
     newsocket.close()
 
 listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -31,7 +32,7 @@ listenSocket.bind(('', PORT))
 listenSocket.listen(5)    # set up backlog buffer
 messageNo = 1
 
-print("Server starting")
+print(f"Server starting on port {PORT}")
 while True:
     # accept client connections
     newsocket, remoteIPandPORT = listenSocket.accept()

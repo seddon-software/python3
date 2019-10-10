@@ -1,11 +1,22 @@
 import sys
+import platform
 from distutils.core import setup, Extension
+
+if(platform.system() == 'Darwin'):
+    extra_compile_args=["-stdlib=libc++"]
+    extra_link_args=["-lc++", "-mmacosx-version-min=10.9"]
+else:
+    extra_compile_args=[]
+    extra_link_args=[]
 
 # normal setup code
 example_module = Extension('_myexample',
                            language='c++',
                            swig_opts=['-c++'],
                            sources=['myexample.i', 'hello.cpp'],
+                           #extra_compile_args=["-stdlib=libc++", "-mmacosx-version-min=10.9"]
+                           extra_compile_args=extra_compile_args,
+                           extra_link_args=extra_link_args
                            )
 
 setup (

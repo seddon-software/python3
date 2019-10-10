@@ -1,10 +1,7 @@
-import os,shutil
+import os
 
 os.chdir("../src")
-
-try: shutil.rmtree("build")
-except: pass
-
+os.system("python setup.py clean --all")
 print("staging area cleaned")
 
 

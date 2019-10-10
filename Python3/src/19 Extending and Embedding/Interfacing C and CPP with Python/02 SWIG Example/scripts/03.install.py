@@ -6,4 +6,6 @@ import set_paths
 os.chdir("../src")
 
 # must run build first
-os.system("python setup.py install")
+subprocess.call("python setup.py install --record files.txt --user".split())
+print("\n\nThe following files were installed:")
+subprocess.call("cat files.txt".split())

@@ -1,3 +1,5 @@
+# cython: language_level=3
+
 def say_hello():
     print("say_hello was compiled using cython")
 

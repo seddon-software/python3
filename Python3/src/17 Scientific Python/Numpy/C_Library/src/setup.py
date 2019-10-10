@@ -4,6 +4,7 @@ from distutils.core import setup, Extension
 
 example_module = Extension('_roots',
         sources=['sumOfRoots.i', 'sumOfRoots.c'],
+        extra_compile_args=["-fPIC"]
                            )
 
 setup (

@@ -6,7 +6,7 @@ double sumOfRoots(int n)
     double sum = 0.0;
     for(int i = 0; i < n; i++)
     {
-        sum += sqrt((float)i);
+        sum += sqrt((double)i);
     }
     return sum;
 }

@@ -7,3 +7,9 @@ To clone this repository:
 Course Materials:
 	http://www.keme.co.uk/~seddon-software/
 
+Simple Debugging with pudb
+==========================
+	pip install pudb
+	python -m pudb myscript.py
+	
+	
