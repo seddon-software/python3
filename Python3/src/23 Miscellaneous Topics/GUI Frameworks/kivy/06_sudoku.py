@@ -11,12 +11,31 @@ from kivy.clock import Clock
 from functools import partial
 import re
 
+import scrape_sudoku
+from sqlalchemy.sql.expression import false
 
-initialCells = """
--3-5----4 ----7---- --71-9---
-----4---- --5--931- -93-1--46
--8----17- ---6428-3-6-8-----
-"""
+
+black = (0,0,0,1)
+white = (1,1,1,1)
+red = (1,0,0,1)
+level1_divider_color = [0,0,0,1]
+level2_divider_color = [0,1,0,1]
+level3_divider_color = [0,0,0,1]
+cell_background_color = [0.9,1,1,1]
+cell_foreground_color = [0.1,0,0,1]
+
+initialCells = scrape_sudoku.getPuzzle()
+# initialCells = """
+# "6---41-75
+# -37----21
+# 9--------
+# ---------
+# -1--6----
+# --53---62
+# -2------4
+# 8--2-----
+# 7---398--
+# """
 class Cell(Button):
     cells = []
     def __init__(self, rowsAndCols):
@@ -27,6 +46,9 @@ class Cell(Button):
         Cell.cells.append(self)
         super().__init__()
         self.rowsAndCols = rowsAndCols
+        self.color = cell_foreground_color
+        self.background_normal = ''
+        self.background_color = cell_background_color
         if self.rowsAndCols:
             self.solved = False
         else:
@@ -91,11 +113,11 @@ class MyGridLayout(GridLayout):
         
         def createSolvedCell():
             cell = Cell({})
-            cell.color = (0,0,0,1)
+            cell.color = black
             cell.font_size = 2 * cell.font_size
             cell.setText(text)
             cell.background_normal = ''
-            cell.background_color = (0.8,0.8,0.8,1)
+            cell.background_color = white
             return cell
 
         def replaceGridChildrenWithSolvedCell():
@@ -144,8 +166,8 @@ class MyGridLayout(GridLayout):
         self.solved = False
 
     def on_center(self, button, pos):
-        spacing = ([12, 12], [6,6], [0,0])
-        colors  = ([1,1,0,1], [1,0,1,1], [0,1,1,1])
+        spacing = ([24, 24], [6,6], [0,0])
+        colors  = (level1_divider_color, level2_divider_color, level3_divider_color)
         self.spacing = spacing[self.level - 1]
         self.canvas.before.clear()
         with self.canvas.before:
@@ -154,13 +176,14 @@ class MyGridLayout(GridLayout):
 
 class MyFrame(App):    
     def build(self):
-#        Window.size = (1000, 1000)
-#        Window.clearcolor = (1, 1, 1, 1)
         self.title = 'Sudoku Solver'
+        Window.size = (1400, 800)
+        Window.top = 50
+        Window.left = 50
 
-        layout = MyGridLayout(level=1, rows=3, cols=3, rowsAndCols={})
-        layout.size = (1000, 1000)
-        Window.clearcolor = (0, 0, 0, 1)
+        layout = MyGridLayout(level=1, rows=4, cols=3, rowsAndCols={})
+
+        #Window.clearcolor = black
         for rowA in range(3):
             for colA in range(3):
                 innerLayout1 = MyGridLayout(rows=3, cols=3, level=2, rowsAndCols={'rowA':rowA, 'colA':colA})
@@ -175,12 +198,32 @@ class MyFrame(App):
                                 cell.setText()
                                 innerLayout2.add_widget(cell)
         layout.background_normal = ''
-        layout.background_color = (1, 0, 0, 1)
+        layout.background_color = red
         Window.bind(mouse_pos=MyGridLayout.mouseOverGrid)
         Window.bind(on_key_down=MyGridLayout.enterNumberInCell)
         global initialCells
         Clock.schedule_once(partial(self.populate, initialCells), 1.0)
+        
+        timer = Button(text="0:00")
+        timer.size_hint = (1, 0.1)
+        timer.color = red
+        timer.time = 0
+        timer.active = True
+        timer.bind(on_press=self.stopTimer)
+        layout.add_widget(timer)
+        self.timer = timer
         return layout
+
+    def stopTimer(self, target):
+        self.timer.active = False
+        
+    def callback(self, dt):
+        if self.timer.active:
+            self.timer.time += dt
+            t = int(self.timer.time)
+            min = t // 60
+            sec = t % 60
+            self.timer.text = f"{min}:{sec:02}"
 
     def populate(self, initialCells, t):
         data = re.sub(r'[\s\n]+', "", initialCells)
@@ -190,6 +233,8 @@ class MyFrame(App):
         for grid, text in zip(grids, data):
             MyGridLayout.gridUnderMouse = grid
             MyGridLayout.enterNumberInCell(None, None, None, text, None)
+        Clock.schedule_interval(self.callback, 1)
+
 
                 
 MyFrame().run()
