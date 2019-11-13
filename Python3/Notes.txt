@@ -1,0 +1,2 @@
+https://blog.soshace.com/en/python/python-array-explained-and-visualized/ (Python weekly 421)
+The Simple Essence of the Y Combinator (Explained in Python) (Python weekly 419)

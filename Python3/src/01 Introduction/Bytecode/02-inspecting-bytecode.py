@@ -5,7 +5,7 @@ def square(x,y):
     return sq
 
 print(square.__code__)
-print([ x for x in square.__code__.co_code] )
+print([ hex(x) for x in square.__code__.co_code] )
 
 import dis
 dis.dis(square)
