@@ -25,17 +25,15 @@ cell_background_color = [0.9,1,1,1]
 cell_foreground_color = [0.1,0,0,1]
 
 initialCells = scrape_sudoku.getPuzzle()
-# initialCells = """
-# "6---41-75
-# -37----21
-# 9--------
-# ---------
-# -1--6----
-# --53---62
-# -2------4
-# 8--2-----
-# 7---398--
-# """
+initialCells = """  ---26----
+                    6---1---3
+                    4---3--18
+                    -7182-6-5
+                    92----8-7
+                    ---------
+                    --------9
+                    -------4-
+                    5---691--"""
 class Cell(Button):
     cells = []
     def __init__(self, rowsAndCols):

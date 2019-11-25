@@ -1,6 +1,6 @@
 ############################################################
 #
-#	Button Images
+#	Bitmap Images
 #
 ############################################################
 
@@ -18,7 +18,7 @@ def calculate():
 
 def main():
     root = Tk()
-    root.title("Button Images")
+    root.title("Playing Cards")
     root.minsize(width=300, height=300)
     mainframe = Frame(master=root)
     mainframe.pack()
