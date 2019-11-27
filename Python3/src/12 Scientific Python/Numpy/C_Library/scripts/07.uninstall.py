@@ -1,19 +1,17 @@
-import os, sys
-from distutils.sysconfig import get_python_lib, get_config_vars
+import subprocess,os,sys
 
-os.chdir(get_python_lib())
-version = sys.version[0:3]
-eggInfo = "SWIG_example-1.0-py" + version + ".egg-info"
-sharedObject = "_myhello" + get_config_vars("SO")[0]
-source = "myhello.py"
-compiled = "myhello.pyc"
+sys.path.append('../..')
+import set_paths
+os.chdir("../src")
 
-installedFiles = [eggInfo, sharedObject, source, compiled]
+installedFiles = open("files.txt", "r")
+for file in installedFiles:
+    subprocess.call(f"rm {file}".split())
 
-for item in installedFiles:
-    try: os.remove(item)
-    except Exception as e: print(e)
-
+subprocess.call("rm files.txt".split())
 print()
 print("Example uninstalled")
+
+
+
 
