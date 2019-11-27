@@ -11,13 +11,10 @@ import tkinter as tk
 from enum import Enum
 import copy
 import re
+import functools as ft
 import scrape_sudoku
 
 class History:
-    '''
-    need index for undo
-    '''
-    
     def __init__(self):
         self.moves = []
         self.index = -1
@@ -29,9 +26,14 @@ class History:
         self.moves.append(move)
         self.index = len(self.moves) - 1
         
-    def getPrevious(self):
-        if self.index == 0: raise ValueError()
-        self.index -= 1        
+    def getPrevious(self, n=1):
+        if self.index < n: raise ValueError()
+        self.index -= n      
+        return self.moves[self.index]
+    
+    def getNext(self, n=1):
+        if self.index > len(self.moves) - (n+1): raise ValueError()
+        self.index += n      
         return self.moves[self.index]
     
     def store(self, move):
@@ -110,27 +112,39 @@ class Block:
     
 
 def addButtons(frame):
-    Button(frame).grid(column=4,row=0)      # dummy to fill column 4
-#     Button(frame, text="History", fg="blue", highlightbackground="green", height=2, 
-#            command=printHistory).grid(column=5, row=0, sticky=E+W)
-    Button(frame, text="Undo",    fg="blue", highlightbackground="green", height=2, 
-           command=undoHistory).grid(column=5, row=1, sticky=E+W)
+    frame.grid_columnconfigure(3, weight=30, pad=20)
+    frame.grid_columnconfigure(4, weight=30, pad=20)
+    Button(frame, text="<",    fg="blue", highlightbackground="green", height=2, 
+           command=undoHistory).grid(column=3, row=0, sticky=E)
+    Button(frame, text=">",    fg="blue", highlightbackground="green", height=2, 
+           command=redoHistory).grid(column=3, row=1, sticky=E)
+           
+    Button(frame, text="<<",    fg="blue", highlightbackground="green", height=2, 
+           command=ft.partial(undoHistory,3)).grid(column=4, row=0, sticky=E)
+    Button(frame, text=">>",    fg="blue", highlightbackground="green", height=2, 
+           command=ft.partial(redoHistory,3)).grid(column=4, row=1, sticky=E)
 
 def repaint():
     for cell in cells:
         cell.display()
 
-def undoHistory(): 
+def undoHistory(n=1): 
     global history
     try:
-        move = history.getPrevious()
+        move = history.getPrevious(n)
         history.store(move)
         repaint()
     except ValueError as e:
         pass        # no undos left
-# def centerText(widget):
-#     widget.tag_configure("center", justify='center')
-#     widget.tag_add("center", 1.0, "end")
+
+def redoHistory(n=1): 
+    global history
+    try:
+        move = history.getNext(n)
+        history.store(move)
+        repaint()
+    except ValueError as e:
+        pass        # no undos left
 
 def createFrame(window, r, c, colour, text=""):
     # frame = Frame(window, relief=FLAT, background = colour, bd=1)
@@ -177,16 +191,16 @@ def main():
     mainframe.grid_columnconfigure(2, weight=0, minsize=300)
     drawGrid(mainframe)
     addButtons(mainframe)
-#     initialCells = """  ---26----
-#                         6---1---3
-#                         4---3--18
-#                         -7182-6-5
-#                         92----8-7
-#                         ---------
-#                         --------9
-#                         -------4-
-#                         5---691--"""
-    initialCells = scrape_sudoku.getPuzzle()
+    initialCells = """  ---26----
+                        6---1---3
+                        4---3--18
+                        -7182-6-5
+                        92----8-7
+                        ---------
+                        --------9
+                        -------4-
+                        5---691--"""
+#    initialCells = scrape_sudoku.getPuzzle()
     initialCells = re.sub(r'\s', '', initialCells)  # remove white space
     initialize(initialCells)
     removeCandidates()

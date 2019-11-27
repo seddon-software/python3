@@ -54,7 +54,7 @@ print(numbaMethod(n))
 print(cModule(n))
 
 # perform timings
-count = 10
+count = 1
 t1 = ForLoop.timeit(number=count)
 t2 = ForLoop2.timeit(number=count)
 t3 = ListComprehension.timeit(number=count)
