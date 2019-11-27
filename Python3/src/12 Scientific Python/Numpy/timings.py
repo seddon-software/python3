@@ -1,5 +1,4 @@
 from timeit import timeit
-#from numba import jit
 import numba
 
 def forLoop(n):
