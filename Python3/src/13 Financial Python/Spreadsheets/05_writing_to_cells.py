@@ -1,5 +1,4 @@
 from openpyxl import Workbook
-from openpyxl.compat import range
 from openpyxl.utils import get_column_letter
 import datetime
 
@@ -11,7 +10,7 @@ ws['A1'] = datetime.datetime.now()
 # ws['A1'].number_format = 'yyyy-mm-dd h:mm:ss'
 ws['A1'].number_format = 'dd-mm-yyyy'
 ws['B1'] = 42
-c = ws.cell("C1")
+c = ws.cell(row=3, column=1)
 c.value = 43
 c = ws.cell(row=1, column=4)
 c.value = 44

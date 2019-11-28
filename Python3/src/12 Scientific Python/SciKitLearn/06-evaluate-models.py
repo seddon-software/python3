@@ -21,4 +21,4 @@ def predict(estimator, message):
 predict(KNeighborsClassifier(n_neighbors=1), "KNeighbors(K=1):")
 predict(KNeighborsClassifier(n_neighbors=3), "KNeighbors(K=3):")
 predict(KNeighborsClassifier(n_neighbors=5), "KNeighbors(K=5):")
-predict(LogisticRegression(), "LogisticRegression(defaults):")
+predict(LogisticRegression(solver='liblinear',  multi_class='ovr'), "LogisticRegression(defaults):")

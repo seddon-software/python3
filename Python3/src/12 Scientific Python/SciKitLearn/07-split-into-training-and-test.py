@@ -1,7 +1,7 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
 
 # load iris data set
@@ -24,5 +24,4 @@ def predict(estimator, message):
 predict(KNeighborsClassifier(n_neighbors=1), "KNeighbors(K=1):")
 predict(KNeighborsClassifier(n_neighbors=3), "KNeighbors(K=3):")
 predict(KNeighborsClassifier(n_neighbors=5), "KNeighbors(K=5):")
-predict(LogisticRegression(), "LogisticRegression(defaults):")
-
+predict(LogisticRegression(solver='liblinear',  multi_class='ovr'), "LogisticRegression(defaults):")
