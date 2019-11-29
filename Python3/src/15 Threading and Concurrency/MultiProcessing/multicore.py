@@ -4,7 +4,8 @@ def random_calculation(x):
     while True:
         x * x
 
-p = Pool(processes=cpu_count())
+#p = Pool(processes=cpu_count())
+p = Pool(processes=40)
 p.map(random_calculation, range(cpu_count()))
 
 

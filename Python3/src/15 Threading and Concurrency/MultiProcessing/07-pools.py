@@ -1,19 +1,18 @@
 from multiprocessing import Pool
 import os
 
+''' same as previous example, but this time show process ids'''
+
 def reportProcessIdsOnce():
     try:
         f.called
     except AttributeError:
         f.called = True
         print(f"{os.getppid()} <-- {os.getpid()}")
-    
-# this function is excecuted in parallel by a pool of processes
+
 def f(x):
-    reportProcessIdsOnce()
+    reportProcessIdsOnce()  # print pids of processes in pool
     return x**2
 
-if __name__ == '__main__':
-    with Pool(5) as p:
-        print(p.map(f, range(20)))
-        
+with Pool(5) as p:
+    print(p.map(f, range(20)))
