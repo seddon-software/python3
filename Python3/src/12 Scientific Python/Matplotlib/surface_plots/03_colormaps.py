@@ -15,11 +15,10 @@ Z = np.sin(R)
 colormaps = [eval('cm.'+s) for s in dir(cm)]
 
 import time
-plt.ion()
-plt.show()
+
+fig = plt.figure()
 for cmap in colormaps:
     if type(cmap) is not matplotlib.colors.LinearSegmentedColormap: continue
-    fig = plt.figure()
     ax = Axes3D(fig)
     surface = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cmap, linewidth=0, antialiased=False)
     ax.set_title(cmap.name)
@@ -28,6 +27,5 @@ for cmap in colormaps:
     ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
     fig.colorbar(surface, shrink=0.5, aspect=5)
     plt.draw()
-    plt.pause(0.5)
+    plt.pause(0.001)
     time.sleep(0.5)
-    plt.close(fig)

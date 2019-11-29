@@ -1,5 +1,6 @@
 import numpy as np
 from numpy import array, dot
+import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.axes3d import Axes3D
 from matplotlib.animation import FuncAnimation
@@ -7,13 +8,12 @@ from math import sqrt
 
 
 def update_plot(frame, data, sc):
-    print(f"{data[frame][1][0]:6.2f}")
-    print("----------")
     sc._offsets3d = data[frame]
     return sc
 
 
 def main():
+    matplotlib.use('TkAgg')
     frames = 2000
     dimensions = 3
     particles = 20
@@ -39,9 +39,10 @@ def main():
     ax.set_zlim3d([-250.0, 250.0])
     ax.set_autoscale_on(False)
 
-
     ix, iy, iz = data[0]
     sc = ax.scatter(ix, iy, iz, s=100.0, c='red', marker='d')
+    def init():
+        return ax
     ani = FuncAnimation(fig, update_plot, frames=frames, fargs=(data,sc), interval=100)
     plt.show()
 
