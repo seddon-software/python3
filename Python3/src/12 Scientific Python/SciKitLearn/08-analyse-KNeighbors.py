@@ -1,5 +1,4 @@
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
@@ -49,7 +48,3 @@ plt.ylabel('Testing Accuracy')
 plt.show()
 
 
-#     fig = plt.figure()
-#     ax = Axes3D(fig)
-#     surface = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cmap, linewidth=0, antialiased=False)
-#     ax.set_title(cmap.name)
