@@ -200,6 +200,28 @@ def main():
                         --------9
                         -------4-
                         5---691--"""
+    initialCells = '''
+                   ---34-9-1
+                   -3-8--2--
+                   ---129---
+                   -96-135--
+                   -53------
+                   7----593-
+                   18---2---
+                   3--4-----
+                   -------68
+                   ''' 
+    initialCells = '''
+                   -137-68--
+                   5-----9--
+                   --------2
+                   -5-4---68
+                   -2-----9-
+                   1----6-3-
+                   6--------
+                   --8--9--7
+                   --42-158-
+                   ''' 
 #    initialCells = scrape_sudoku.getPuzzle()
     initialCells = re.sub(r'\s', '', initialCells)  # remove white space
     initialize(initialCells)
