@@ -18,48 +18,33 @@ def getPuzzle():
     driver = webdriver.Chrome(executable_path="chromedriver")
     print(f"Chrome Driver Version: {driver.capabilities['chrome']['chromedriverVersion']}")
     site = "https://alzheimer.ca/en/on/Living-with-dementia/BrainBooster/Sudoku"
+    site = "https://www.nytimes.com/puzzles/sudoku/easy"
+    site = "https://www.nytimes.com/puzzles/sudoku/medium"
+    site = "https://www.nytimes.com/puzzles/sudoku/hard"
     driver.get(site)
 
-    # work with iframe
-    wait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it(
-        driver.find_element_by_xpath("//iframe[@seamless='seamless']")))
-
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "menuItem"))
-    )
-        
-    # click some buttons to get expert sudoku
-    content = driver.find_element_by_css_selector("#menuItem")
-    content.click()
-    
     driver.implicitly_wait(10) # seconds
-    
-    content = driver.find_element_by_css_selector("#lblDifficulty3")
-    content.click()
-    content = driver.find_element_by_css_selector("#new")
-    content.click()
-
-    # wait until we hope the old puzzle is overwritten
-    time.sleep(5)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html5lib')
-    text = driver.find_element_by_css_selector("#x0_0").text
-    table = soup.find("table", class_="outer")
-
-    # extract data big cell by big cell
+    span = driver.find_element_by_css_selector("#a_")
+    span.click()
+        
+    gridSelector = "#pz-game-root > div.su-app > div > div.su-app__play > div > div > div"
+    # click some buttons to get expert sudoku
+    content = driver.find_element_by_css_selector(gridSelector)
+    # extract cell by cell
     result = ""
-    for cell in range(9):
-        rowOffset = 3 * (cell // 3)
-        colOffset = 3 * (cell %  3)
-        for row in range(3):
-            for col in range(3):
-                selector = f"#x{row+rowOffset}_{col+colOffset}"
-                contents = table.select(selector)[0].contents
-                if contents: 
-                    result += contents[0]
-                else:
-                    result += "-"
-        result += "\n"
+    for n in range(1,82):
+        cellSelector = f'/html/body/div[1]/div/div[2]/div[2]/div[2]/div/div[1]/div/div/div/div[{n}][@aria-label]'
+        cell = driver.find_element_by_xpath(cellSelector)
+        html = cell.get_attribute('innerHTML')
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            result += soup.svg['number']
+        except:
+            result += "-"
+        
     # close chrome
     driver.quit()
     return result
+
+if __name__ == "__main__":
+    print(getPuzzle())

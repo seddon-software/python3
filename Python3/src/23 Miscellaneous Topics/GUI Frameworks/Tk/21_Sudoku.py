@@ -96,6 +96,7 @@ class Cell:
             s = f"{s1}\n{s2}\n{s3}\n"
             textSize = 14
             self.text.config(height=3, width=3, spacing1=3, spacing3=3)
+#            self.text.config(bg="red")
         self.text.delete(1.0, END)
         self.text.insert(1.0, s)
         self.text.config(font=("Courier", textSize))
@@ -116,13 +117,13 @@ def addButtons(frame):
     frame.grid_columnconfigure(4, weight=30, pad=20)
     Button(frame, text="<",    fg="blue", highlightbackground="green", height=2, 
            command=undoHistory).grid(column=3, row=0, sticky=E)
-    Button(frame, text=">",    fg="blue", highlightbackground="green", height=2, 
-           command=redoHistory).grid(column=3, row=1, sticky=E)
+#     Button(frame, text=">",    fg="blue", highlightbackground="green", height=2, 
+#            command=redoHistory).grid(column=3, row=1, sticky=E)
            
     Button(frame, text="<<",    fg="blue", highlightbackground="green", height=2, 
            command=ft.partial(undoHistory,3)).grid(column=4, row=0, sticky=E)
-    Button(frame, text=">>",    fg="blue", highlightbackground="green", height=2, 
-           command=ft.partial(redoHistory,3)).grid(column=4, row=1, sticky=E)
+#     Button(frame, text=">>",    fg="blue", highlightbackground="green", height=2, 
+#            command=ft.partial(redoHistory,3)).grid(column=4, row=1, sticky=E)
 
 def repaint():
     for cell in cells:
@@ -174,9 +175,36 @@ def drawGrid(frame):
     for row in range(3):
         for col in range(3):
             createFrame(window=frame, r=row, c=col, colour='blue')
-
 def initialize(initialCells):
-    for cell, c in zip(cells, initialCells):
+    def g():
+    # 0 1 2 3 4 5 6 7 8 9 .. 81 ->  
+    #                     0  1  2  9 10 11 18 19 20
+    #                     3  4  5 12 13 14 21 22 23
+    #                     6  7  8 15 16 17 24 25 26
+    #                    27 28 29 36 37 38 45 46 47
+    #                    30 31 32 39 40 41 48 49 50
+    #                    33 34 35 42 43 44 51 52 53
+    #                    54 55 56 63 64 65 72 73 74
+    #                    57 58 59 66 67 68 75 76 77
+    #                    60 61 62 69 70 71 78 79 80
+        endRow = [3,6,9,30,33,36,57,60,63,12,15,18,39,42,45,66,69,72]
+        endCol = [21,24,48,51,75,78]
+        n = 0
+        while n < 81:
+            if n in endCol: n -= 18
+            elif n in endRow: n += 6
+            else: pass
+            yield n
+            n += 1
+        return
+    
+    chars = [c for c in initialCells]
+    # chars needs to be transformed using generator g
+    values = ""
+    for n in g():
+        values += chars[n]
+    
+    for cell, c in zip(cells, values):
         if c != "-":
             cell.setSolution(int(c))
             
@@ -222,7 +250,7 @@ def main():
                    --8--9--7
                    --42-158-
                    ''' 
-#    initialCells = scrape_sudoku.getPuzzle()
+    initialCells = scrape_sudoku.getPuzzle()
     initialCells = re.sub(r'\s', '', initialCells)  # remove white space
     initialize(initialCells)
     removeCandidates()
@@ -267,6 +295,18 @@ def refresh():
         cell.display()
     history.addMove()
     print(history.index)
+
+################################### TODO ###############################
+def isRowPair(cell):
+    for cellA in cells:
+        if not cellA.isSolved():
+            pass
+    
+################################### TODO ###############################
+def isColumnPair(cell):
+    for cellA in cells:
+        if not cellA.isSolved():
+            pass
     
 def removeCandidates():
     def isSameRow(cellA, cellB): return cellA.row == cellB.row
