@@ -321,7 +321,7 @@ def removeCandidates():
                 if isSameRow(cellA, cellB): cellB.unset(solution)
                 if isSameColumn(cellA, cellB): cellB.unset(solution)
                 if isSameSquare(cellA, cellB): cellB.unset(solution)
-    
+
 def setColors():
     for cell in cells:
         n = cell.square % 2

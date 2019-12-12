@@ -3,6 +3,9 @@ import codecs
 import time
 from bs4 import os, BeautifulSoup, Tag
 
+CHROMEDRIVER = "chromedriver-linux"
+#CHROMEDRIVER = "chromedriver-mac"
+
 # must be able to locate chromedriver on the PATH
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -15,7 +18,7 @@ def getPuzzle():
     os.environ["PATH"] = "." + os.pathsep + os.environ["PATH"]
     
     # load Chrome
-    driver = webdriver.Chrome(executable_path="chromedriver")
+    driver = webdriver.Chrome(executable_path=CHROMEDRIVER)
     print(f"Chrome Driver Version: {driver.capabilities['chrome']['chromedriverVersion']}")
     site = "https://alzheimer.ca/en/on/Living-with-dementia/BrainBooster/Sudoku"
     site = "https://www.nytimes.com/puzzles/sudoku/easy"
