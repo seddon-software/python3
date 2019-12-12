@@ -4,7 +4,7 @@ import time
 from bs4 import os, BeautifulSoup, Tag
 
 CHROMEDRIVER = "chromedriver-linux"
-#CHROMEDRIVER = "chromedriver-mac"
+CHROMEDRIVER = "chromedriver-mac"
 
 # must be able to locate chromedriver on the PATH
 from selenium import webdriver

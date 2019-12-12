@@ -1,6 +1,8 @@
 import asyncio
 import requests
 
+# this example uses future objects.  Each download explicitly sets
+# its result
 async def download(site, future):
     # download 5 times to slow program down
     for _ in range(5):
@@ -15,6 +17,7 @@ async def main():
     f1 = event_loop.create_future()
     f2 = event_loop.create_future()
     f3 = event_loop.create_future()
+    # wait until all futures results have been set
     await asyncio.gather(
         download("http://ibm.com", f1),
         download("http://bbc.co.uk", f2),

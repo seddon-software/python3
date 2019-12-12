@@ -9,6 +9,8 @@ def work(x, y):
 with ProcessPoolExecutor(max_workers=1) as executor:
     # make an asynchronous call
     #future = executor.submit(pow, 323, 1235)
+    print(f"started at {time.strftime('%X')}")
     future = executor.submit(work, 323, 1235)
     print("this is the main thread waiting ...")
     print(future.result())
+    print(f"finished at {time.strftime('%X')}")

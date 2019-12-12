@@ -13,6 +13,8 @@ async def download(site):
     get(5)
 
 async def main():
+    # schedule downloads to be run in parallel
+    # note each download only yields after 5 downloads
     task1 = asyncio.create_task(download("http://abc.com"))
     task2 = asyncio.create_task(download("http://bbc.co.uk"))
     task3 = asyncio.create_task(download("http://ibm.co.uk"))

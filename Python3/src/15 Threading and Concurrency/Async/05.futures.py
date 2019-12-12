@@ -12,7 +12,8 @@ async def download(site):
 
 
 async def main():
-
+    # note each download yields immediately so that other downloads 
+    # can run in parallel.  main waits until all results are available
     response = await asyncio.gather(
         download("http://ibm.com"),
         download("http://bbc.co.uk"),
