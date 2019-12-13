@@ -6,6 +6,9 @@ To clone this repository:
 Course Materials:
 	http://www.keme.co.uk/~seddon-software/
 
+Library Sizes:
+	http://web.mit.edu/tabbott/Public/sage.sloccount
+	
 Simple Debugging with pudb
 ==========================
 	pip install pudb

@@ -15,8 +15,8 @@ def main():
     print(type(df.values))
     print()
 
-    a = df[['state']]    # list parameter => dataset
-    b = df['state']      # column parameter => series
+    a = df[['state']]    # list parameter => returns a dataset
+    b = df['state']      # column parameter => returns a series
     print(type(a))
     print(type(b))
     print()
