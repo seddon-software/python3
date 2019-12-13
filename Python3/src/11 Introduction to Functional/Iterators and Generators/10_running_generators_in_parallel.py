@@ -24,6 +24,7 @@ generators.append( cubes() )
 generators.append( quads() )
 
 # generators allow us to perform different calculations in parallel
+# create a round robin scheduler
 while(True):
     for g in generators:
         print(next(g))

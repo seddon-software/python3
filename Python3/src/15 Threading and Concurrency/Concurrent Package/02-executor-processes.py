@@ -1,16 +1,25 @@
 from concurrent.futures import ProcessPoolExecutor
 import time
 
-def work(x, y):
-    print("this is the asynchronous call")
-    time.sleep(5)
-    return pow(x, y)
-    
-with ProcessPoolExecutor(max_workers=1) as executor:
-    # make an asynchronous call
-    #future = executor.submit(pow, 323, 1235)
-    print(f"started at {time.strftime('%X')}")
-    future = executor.submit(work, 323, 1235)
-    print("this is the main thread waiting ...")
-    print(future.result())
-    print(f"finished at {time.strftime('%X')}")
+N = 100
+MAX = 10
+
+def work(n):
+    sum_ = 0
+    for n in range(n):
+        sum_ += n**0.3
+    return sum_
+
+future = [None]*N
+
+with ProcessPoolExecutor(max_workers=MAX) as executor:
+    start = f"started at {time.strftime('%X')}"
+    for n in range(N):
+        future[n] = executor.submit(work, 10*1000*1000)
+    print("this is the main process waiting ...")
+    for n in range(N):
+        print(future[n].result())
+    finish = f"finished at {time.strftime('%X')}"
+    print(start)
+    print(finish)
+

@@ -1,15 +1,23 @@
 from concurrent.futures import ThreadPoolExecutor
 import time
+N = 100
+MAX = 10
 
-def work(x, y):
-    print("this is the asynchronous call")
-    time.sleep(10)
-    return pow(x, y)
-    
-with ThreadPoolExecutor(max_workers=5) as executor:
-    # make an asynchronous call
-    future1 = executor.submit(work, 3, 5)
-    future2 = executor.submit(work, 5, 7)
-    print("this is the main thread waiting ...")
-    print(future1.result())
-    print(future2.result())
+def work(n):
+    sum_ = 0
+    for n in range(n):
+        sum_ += n**0.3
+    return sum_
+
+future = [None]*N
+
+with ThreadPoolExecutor(max_workers=MAX) as executor:
+    start = f"started at {time.strftime('%X')}"
+    for n in range(N):
+        future[n] = executor.submit(work, 10*1000*1000)
+    print("this is the main process waiting ...")
+    for n in range(N):
+        print(future[n].result())
+    finish = f"finished at {time.strftime('%X')}"
+    print(start)
+    print(finish)
