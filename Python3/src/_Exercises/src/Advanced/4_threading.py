@@ -74,7 +74,7 @@ def monitor(company):
     for i in range (1, 25):
         resetEvent.wait()
         resetEvent.clear()
-        print Average(company.getPrices())
+        print(f"{Average(company.getPrices()):.2f}")
         company.reset()
         pricesAvailableEvent.set()
 
@@ -94,7 +94,7 @@ pricesAvailableEvent.set()
 thread1.join()
 thread2.join()
 
-print "\nEnd of main Thread" 
+print("\nEnd of main Thread") 
 
 
 

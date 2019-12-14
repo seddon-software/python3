@@ -1,5 +1,4 @@
-import types    # work with new style classes
-import inspect
+import types
 
 # create a class that can dynamically add and remove methods
 class MyClass(object):

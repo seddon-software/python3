@@ -66,8 +66,8 @@ def romanToDecimal(roman):
     
 
 for n in range(1, 4000):
-    print n, decimalToRoman(n)
+    print(n, decimalToRoman(n))
 
 for n in range(1, 4000):
     r = decimalToRoman(n)
-    print romanToDecimal(r)
+    print(romanToDecimal(r))

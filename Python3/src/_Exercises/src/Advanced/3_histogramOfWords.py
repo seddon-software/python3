@@ -7,14 +7,13 @@ def displayPlot():
     plt.show()
 
 def generateStepPlot(occurances):
-    keys = occurances.keys()
+    keys = sorted(occurances.keys())
+    values = [occurances[key] for key in keys]
     keys = [key+0.5 for key in keys] # adjust x axis legend by 0.5
-    values = occurances.values()
     plt.step(keys, values, color='red')
     old_key = keys[0]
     for key, value in zip(keys, values):
         plt.fill_between([old_key, key], [value, value], [0, 0])
-        # this generates a warning although it shouldn't (its a bug in matplotlib)
         old_key = key
 
 def calculateOccurancesOfWords(words):
@@ -32,8 +31,8 @@ def readInputFile(fileName):
         with open(fileName, "r") as f:
             allLines = f.readlines()
             return allLines
-    except IOError,e:
-        print e
+    except IOError as e:
+        print(e)
 
 
 words = readInputFile("/usr/share/dict/words")

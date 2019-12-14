@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 '''
 This web scraping program will extract all the result for the Football Premiership season 2014-5
 and produce a table that looks like:
@@ -30,10 +28,9 @@ import mechanize
 from bs4 import BeautifulSoup
 
 def findAllRowsInResultsTable(soup):
-	span = soup.find("span", {"id":"Result_table"})
-	table = span.find_next("table", {"class":"wikitable"})
+	table = soup.find("table", {"class":"wikitable plainrowheaders"})
 	trs = table.find_all("tr")
-	trs.pop(0)
+	trs.pop(0)		# headings
 	return trs
 
 def getSoup(url):
@@ -43,36 +40,32 @@ def getSoup(url):
 	soup = BeautifulSoup(data, "lxml")
 	return soup
 
-def extractTeam(text):
-	'the teams have a strange format with an ! separating two copies of the team names'
-	fields = text.split('!')
-	return fields[1]
+# def extractTeam(text):
+# 	'the teams have a strange format with an ! separating two copies of the team names'
+# 	fields = text.split('!')
+# 	return fields[1]
 
-url="https://en.wikipedia.org/wiki/2014-15_Premier_League#Result_table"
+url="https://en.wikipedia.org/wiki/2018-19_Premier_League#Result_table"
 teams = [ ]
 scores = [ ]
 soup = getSoup(url)
 trs = findAllRowsInResultsTable(soup)
 for tr in trs:
-	results =  tr.find_all(text=True)
-	results = "".join(results)
-	results = results.split('\n')
-	team = extractTeam(results[1])
+	row =  tr.find_all(text=True)
+	entry = [str(col) for col in list(row) if str(col) != "\n"]
+	team = entry.pop(0)
 	teams.append( team )
-	' first 2 columns need to be removed'
-	results.pop(0)
-	results.pop(0)
 	teamScores = [ ]
-	for result in results:
-		teamScores.append(result)
+	for col in entry:
+		teamScores.append(col.strip())
 	scores.append(teamScores)
 
 league = zip(teams, scores)
 
 for team, results in league:
-	print "{0:20s}".format(team),
+	print(f"{team:24s}", end=" ")
 	for result in results:
-		print u"{0:4s}".format(result),
-	print 
+		print(f"{result:4s}", end=" ")
+	print() 
 
 

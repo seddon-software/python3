@@ -25,9 +25,17 @@ class D(B,C):
         super(D,self).__init__(**kwargs)
         self.d = kwargs['d']
 
+def printMRO(clazz):
+    print("MRO = ", end="")
+    for c in clazz.mro():
+        print(c.__name__, end=" ")
+    print()
+        
+printMRO(D)
+# this will call all __init__ methods in the MRO
+# but each __init__ will use the same value of self
+# hence myObject.__dict__ will end up with 4 entries 
 myObject = D(a=1,b=2,c=3,d=4)
-
-
-1
+print(f"myObject dict = {myObject.__dict__}")
     
 

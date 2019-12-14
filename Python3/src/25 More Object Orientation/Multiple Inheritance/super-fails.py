@@ -11,6 +11,9 @@
 class A(object):
     def __init__(self, x):
         self.x = x
+        print(self)
+        # when this is called as an A object, super invokes object
+        # when this is called as a  C object, super invokes B because of the MRO
         super(A,self).__init__()
 
 class B(object):
