@@ -6,7 +6,7 @@ q = 71
 n = p * q
 print(n)
 
-# 3. Find the least common multiple (lcm) of p -1 and q -1
+# 3. Find the least common multiple (lcm) of p-1 and q-1
 import math
 
 def lcm(a, b):
@@ -24,19 +24,25 @@ e = 23
 
 # 5. Compute the modular multiplicative inverse of e:
 def inverse_mod(e, x):
-   t = 0
-   newt = 1
-   r = x
-   newr = e
-   while newr != 0:
-       q = r // newr
-       t, newt = newt, t - q * newt
-       r, newr = newr, r - q * newr
-   if r > 1:
-       return None
-   if t < 0:
-       t += x
-   return t
+    '''
+    The modular multiplicative inverse is an integer ‘x’ such that:
+        a * x ≡ 1 (mod m) 
+    The value of x should be in {0, 1, 2, … m-1}, 
+    i.e., in the range of integer modulo m.
+    '''
+    t = 0
+    new_t = 1
+    r = x
+    new_r = e
+    while new_r != 0:
+        q = r // new_r
+        t, new_t = new_t, t - q * new_t
+        r, new_r = new_r, r - q * new_r
+    if r > 1:
+        return None
+    if t < 0:
+        t += x
+    return t
 
 d = inverse_mod(e, x)
 print(d)

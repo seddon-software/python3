@@ -10,15 +10,15 @@ def printHomeTable(lines, teams):
     
     league.sort(key=lambda entry:entry[0], reverse=True)
     for pts, entry in league:
-        print entry
+        print(entry)
 
 def readResultsFile(fileName):
     try:
         with open(fileName, "r") as f:
             allLines = f.readlines()
             return allLines
-    except IOError,e:
-        print e
+    except IOError as e:
+        print(e)
 
 def getTeams(lines):
     teams = []

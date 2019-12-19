@@ -7,6 +7,6 @@ appear to converge to a number?
 a, b = 0, 1
 
 for n in range(20):
-    print float(a)/b 
+    print(a/b) 
     a, b = b, a+b
     

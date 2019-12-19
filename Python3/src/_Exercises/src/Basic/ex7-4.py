@@ -8,18 +8,19 @@ inFile = None
 total = 0
 
 try:
-    inFile = open("../data/TestData2.txt", "r")
+    inFile = open("data/TestData2.txt", "r")
 
     for line in inFile:
         try:
             total += int(line)
-        except Exception,e:
-            print e
-except IOError, reason:
-    print reason
+        except Exception as e:
+            print(e)
+except IOError as reason:
+    print(reason)
 finally:        
     if inFile: inFile.close()
 
-print "Total = ", total
+print(f"Total = {total}")
+
 
 1

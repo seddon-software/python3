@@ -6,7 +6,7 @@ element.  Print out the array as part of the function.
 
 def AddArrays(array1, array2):
     for i, item in enumerate(array1):
-        print array1[i] + array2[i],
+        print(array1[i] + array2[i], end=" ")
 
 
 a1 = ( 3,  6,  9, 10, 20, 17, 14)

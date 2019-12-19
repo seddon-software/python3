@@ -10,8 +10,8 @@ def Area(length, breadth):
     return length * breadth
 
 """ Tests """
-print Area(40, 20)
-print Area(41, 19)
-print Area(42, 18)
-print Area(43, 17)
-print Area(44, 16)
+print( Area(40, 20) )
+print( Area(41, 19) )
+print( Area(42, 18) )
+print( Area(43, 17) )
+print( Area(44, 16) )

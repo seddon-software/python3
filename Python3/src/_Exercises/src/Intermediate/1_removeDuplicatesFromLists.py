@@ -11,4 +11,4 @@ set1 = set(list1)
 set2 = set(list2)
 common = set1.intersection(set2)
 newList = list(common)
-print newList
+print(newList)

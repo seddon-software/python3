@@ -17,4 +17,4 @@ y = 200
 z = 300
 
 x, y, z = Rotate(x, y, z)
-print x, y, z
+print(x, y, z)

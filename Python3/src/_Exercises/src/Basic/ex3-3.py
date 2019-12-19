@@ -13,4 +13,4 @@ for i in range(10):
     theList.append(tuple2[i])
     
 tuple3 = tuple(theList)
-print tuple3     
+print(tuple3)     

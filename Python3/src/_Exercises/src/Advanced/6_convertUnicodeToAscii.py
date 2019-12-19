@@ -10,15 +10,15 @@ def getUnicodeFileContents(filename):
             allLines = f.readlines()
             text = "".join(allLines)
             return text
-    except IOError,e:
-        print e
+    except IOError as e:
+        print(e)
 
 def writeAsciiFile(filename, data):
     try: 
         with open(filename, "w+") as f:
             f.writelines(data)
-    except IOError,e:
-        print e
+    except IOError as e:
+        print(e)
 
 
 os.chdir("resources")

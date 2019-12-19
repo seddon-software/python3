@@ -12,8 +12,8 @@ def factorial(n):
     else:
         return n * factorial(n -1)
 
-print factorial(1)
-print factorial(10)
-print factorial(40)
-print factorial(100)
+print(factorial(1))
+print(factorial(10))
+print(factorial(40))
+print(factorial(100))
 

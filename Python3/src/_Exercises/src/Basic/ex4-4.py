@@ -10,8 +10,8 @@ Write a function that takes a string and capitalises the first character of the 
 def UpperFirst(s):
     return s.capitalize()
 
-print UpperFirst("test1")
-print UpperFirst("mIxEdCaSe")
-print UpperFirst("UPPER")
-print UpperFirst("lower")
-print UpperFirst("oPPOSITE")
+print( UpperFirst("test1") )
+print( UpperFirst("mIxEdCaSe") )
+print( UpperFirst("UPPER") )
+print( UpperFirst("lower") )
+print( UpperFirst("oPPOSITE") )

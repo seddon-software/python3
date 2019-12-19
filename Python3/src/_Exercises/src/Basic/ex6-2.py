@@ -31,10 +31,10 @@ try:
     johnsAccount.deposit(250.00)
     johnsAccount.deposit(500.00)
     johnsAccount.withdraw(100.00)
-    print johnsAccount.getBalance()
+    print(johnsAccount.getBalance())
     johnsAccount.withdraw(2000.00)
 except Overdrawn:
-    print "account would be overdrawn"
+    print("account would be overdrawn")
 
 
 

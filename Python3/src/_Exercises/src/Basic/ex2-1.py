@@ -11,11 +11,11 @@ def isLeap(year):
     return result
 
 
-year = int(raw_input("Enter a year: "))
+year = int(input("Enter a year: "))
 
 if isLeap(year):
-    print str(year) + " is a leap year"
+    print(f"{year} is a leap year")
 else:
-    print str(year) + " is NOT a leap year"
+    print(f"{year} is NOT a leap year")
 
 1

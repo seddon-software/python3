@@ -9,15 +9,15 @@ inFile = None
 total = 0
 
 try:
-    inFile = open("../data/TestData.txt", "r")
+    inFile = open("data/TestData.txt", "r")
 
     for line in inFile:
         total += int(line)
-except IOError, reason:
-    print reason
+except IOError as reason:
+    print(reason)
 finally:        
     if inFile: inFile.close()
 
-print "Total = ", total
+print(f"Total = {total}")
 
 1

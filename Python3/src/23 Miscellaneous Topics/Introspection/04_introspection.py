@@ -1,4 +1,3 @@
-import collections
 ############################################################
 #
 #    introspection
@@ -27,9 +26,8 @@ p.display()
 
 # investigate object
 print("methods and attributes:", dir(p))
-methodList = [method for method in dir(p) if isinstance(getattr(p, method), collections.Callable)]
+methodList = [method for method in dir(p) if callable(getattr(p, method))]
 print("methods:", methodList)
-
 print("attributes: ", p.__dict__)
 print("class:", p.__class__)
 print("doc string:", p.__class__.__doc__)

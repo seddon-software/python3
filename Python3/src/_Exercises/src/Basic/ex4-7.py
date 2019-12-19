@@ -15,5 +15,5 @@ def AddArrays(array1, array2):
 a1 = ( 3,  6,  9, 10, 20, 17, 14)
 a2 = (17, 14, 11, 10,  0,  3,  6)
 result = AddArrays(a1, a2)
-print result
+print(result)
 

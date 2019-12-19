@@ -9,8 +9,8 @@ customer = dict();
 
 keyCols = ('firstName', 'initial', 'lastName')    
 valueCols = ('empNo', 'dept', 'phone', 'hiredate', 'job', 'sex', 'birthDate', 'salary', 'bonus', 'commission')
-print "key cols: ", keyCols
-print "value cols: ", valueCols
+print("key cols: {keyCols}")
+print("value cols: {valueCols}")
 
 for line in data:
     fields = line.split(";", 2)
@@ -39,7 +39,7 @@ for line in data:
 
 # search for two different entries
 key = ('WILLIAM', 'T', 'JONES')
-print key, customer[key]
+print(key, customer[key])
 
 key = ('DAVID', '', 'BROWN')
-print key, customer[key]
+print(key, customer[key])

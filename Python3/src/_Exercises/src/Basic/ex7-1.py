@@ -6,16 +6,16 @@ inFile = None
 count = 0
 
 try:
-    inFile = open("../data/original.txt", "r")
+    inFile = open("data/original.txt", "r")
 
     for line in inFile:
         count += 1
-except IOError, reason:
-    print reason
+except IOError as reason:
+    print(reason)
 finally:        
     if inFile: inFile.close()
 
-print "Line count = ", count
+print(f"Line count = {count}")
 
 
 1

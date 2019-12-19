@@ -7,8 +7,8 @@ inFile = None
 outFile = None
 
 try:
-    inFile = open("../data/original.txt", "r")
-    outFile = open("../data/reversed.txt", "w")
+    inFile = open("data/original.txt", "r")
+    outFile = open("data/reversed.txt", "w")
 
     listOfLines = list()
     for line in inFile:
@@ -17,8 +17,8 @@ try:
     for line in listOfLines:
         outFile.write(line)
         
-except IOError, reason:
-    print reason
+except IOError as reason:
+    print(reason)
 finally:        
     if inFile: inFile.close()
     if outFile: outFile.close()

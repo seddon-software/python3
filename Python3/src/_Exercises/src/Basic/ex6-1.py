@@ -22,7 +22,7 @@ johnsAccount.deposit(350.00)
 johnsAccount.deposit(250.00)
 johnsAccount.deposit(500.00)
 johnsAccount.withdraw(100.00)
-print johnsAccount.getBalance()
+print(johnsAccount.getBalance())
 
 
 

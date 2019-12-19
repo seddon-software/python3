@@ -15,6 +15,6 @@ totalDays = 0
 for year in range(2000, 3000):
     totalDays += daysInYear(year)
 
-print totalDays
+print(totalDays)
 
 1
