@@ -11,6 +11,7 @@ class MyClass(object):  # new style class
     
     # always called if attribute is read
     def __getattribute__(self, name):
+        print("__getattribute__")
         return object.__getattribute__(self, name)    
     
     # always called if attribute is written

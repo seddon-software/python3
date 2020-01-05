@@ -1,6 +1,6 @@
 import asyncio
 
-# this is a coroutine
+# this is a coroutine (related to a generator)
 async def main():
     print('hello')
     await asyncio.sleep(1)

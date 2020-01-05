@@ -10,20 +10,15 @@ class Trace(object):
         self.name = name
 
     def __get__(self, obj, objtype):
-        print("GET:" + self.name + " = " + str(obj.__dict__[self.name]))
+        print(f"GET: {self.name} = {obj.__dict__[self.name]}")
         return obj.__dict__[self.name]
 
     def __set__(self, obj, value):
         obj.__dict__[self.name] = value
-        print("SET:" + self.name + " = " + str(obj.__dict__[self.name]))
+        print(f"SET: {self.name} = {obj.__dict__[self.name]}")
 
 
-
-
-
-# define the attributes of your class (must derive from object)
-#  to be references to instances of a descriptor
-
+# define the class attributes to be references to instances of a descriptor
 class Point(object):
 # NOTES:
 # 1. descriptor invoked by dotted attribute access:  A.x or a.x
@@ -43,7 +38,8 @@ class Point(object):
 
 # trace all getters and setters    
 p1 = Point(15, 25)
-p1.x = 20
+p1.x = 20                   # uses descriptor protocol
+p1.__dict__['x'] = 19       # this accesses the object dictionary directly
 p1.y = 35
 result = p1.x
 p2 = Point(16, 26)

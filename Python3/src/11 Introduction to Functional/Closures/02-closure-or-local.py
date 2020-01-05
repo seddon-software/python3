@@ -17,7 +17,7 @@ def f1():
         x2['red'] = 255
         y1 = 10
         y2 = y3
-        scope(f2)
     f2()
+    scope(f2)
 
 f1()
