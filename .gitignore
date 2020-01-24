@@ -1,7 +1,6 @@
 .metadata/
 29\ Work\ in\ progress
-demos
-demos2
+demos*
 /**/build
 /**/__pycache__
 
