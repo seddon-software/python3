@@ -1,0 +1,4 @@
+/Users/seddon/.local/lib/python3.7/site-packages/roots.py
+/Users/seddon/.local/lib/python3.7/site-packages/__pycache__/roots.cpython-37.pyc
+/Users/seddon/.local/lib/python3.7/site-packages/_roots.cpython-37m-darwin.so
+/Users/seddon/.local/lib/python3.7/site-packages/SWIG_example-1.0-py3.7.egg-info
