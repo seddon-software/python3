@@ -12,4 +12,6 @@ while x < 1000:
     x = next(g)
     print(x)
     
-    
+for n in range(10):
+    print(next(g)) 
+       

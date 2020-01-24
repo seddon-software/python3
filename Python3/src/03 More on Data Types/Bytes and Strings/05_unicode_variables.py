@@ -8,7 +8,7 @@ def rotate(vector, θ, 𝜙):
                [       cos(θ),       -sin(θ),      0  ]
               ]
      mattrix = np.array(matrix)
-     return matrix @ vector
+     return matrix @ vector     # note: @ denote matrix multiplication 
  
 π = 4 * arctan(1.0)
 print(rotate(np.array([10, 10, 10]), π/3, π/4))
