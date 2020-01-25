@@ -13,21 +13,39 @@ def set_title(title):
     figure = plt.gcf()
     figure.canvas.set_window_title(title)
 
+def setupAxes(yLabel):
+    set_title("MoKedge_1_15.nxs")
+    ax = plt.gca()
+    ax.set_facecolor((1.0, 0.9, 0.6))
+    ax.set_xlabel('X')
+    ax.set_ylabel(yLabel)
+    ax.xaxis.set_label_position("top")
+    ax.yaxis.set_label_position("right")
+    plt.grid(True)
+
 fileName = "MoKedge_1_15.nxs"
 f = h5py.File(fileName, "r")
 
 Y = f["/entry1/counterTimer01/It"][()]
 X = np.arange(len(Y))
 Ŷ = savgol_filter(Y, 25, 3) # smoothing window size 25, polynomial order 3
+dY = np.diff(Y)
+dŶ = savgol_filter(dY, 25, 3) # smoothing window size 25, polynomial order 3
 
-ax = plt.gca()
-ax.set_facecolor((0.3, 0.5, 0.3))
-ax.set_xlabel('X')
-ax.set_ylabel('counterTimer01/It')
-ax.xaxis.set_label_position("top")
-ax.yaxis.set_label_position("right")
-plt.plot(X, Ŷ, linewidth=3, color="white")
-plt.plot(X, Y)
-plt.grid(True)
-set_title("/entry1/counterTimer01/It")
+k̂wargs = {'linewidth':3, 'color':'blue'}
+kwargs = {'linewidth':1, 'color':'red'}
+
+# plot It
+setupAxes('It')
+plt.plot(X, Ŷ, **k̂wargs)
+plt.plot(X, Y, **kwargs)
 plt.show()
+
+# plot d(It)
+setupAxes('d(It)')
+left = 280
+right = 70
+plt.plot(X[left:-right-1], dŶ[left:-right], **k̂wargs)
+plt.plot(X[left:-right-1], dY[left:-right], **kwargs)
+plt.show()
+
