@@ -4,8 +4,8 @@ import re
 def printHomeTable(lines, teams):
     league = []
     for team, line in zip(teams, lines):
-        result, pts = getHomeResults(line)
-        output = "{:24s}{:s}".format(team, result)
+        state_centroid, pts = getHomeResults(line)
+        output = "{:24s}{:s}".format(team, state_centroid)
         league.append([pts, output])
     
     league.sort(key=lambda entry:entry[0], reverse=True)
