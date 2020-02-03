@@ -1,4 +1,5 @@
-# Reading Excel files requires the xlrd library. You can install it via pip (pip install xlrd).
+# Reading Excel files requires the xlrd library. 
+# You can install it via pip (pip install xlrd).
 
 import pandas as pd
 import pylab as pl

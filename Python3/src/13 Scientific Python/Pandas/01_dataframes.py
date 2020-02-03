@@ -4,6 +4,11 @@ pd.set_option('display.precision', 1)
 pd.set_option('display.width', None)        # None means all data displayed
 pd.set_option('display.max_rows', None)
 
+'''
+Pandas 2D dataset are called dataframe.
+This example shows several methods of the dataframe.
+'''
+
 def main(): 
     column_names = ['year', 'month', 'tmax', 'tmin', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment']
     lerwick_data = pd.read_csv("data/lerwick.txt", 

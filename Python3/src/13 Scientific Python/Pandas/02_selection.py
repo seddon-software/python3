@@ -6,24 +6,35 @@ pd.set_option('display.max_rows', None)
 
 def main(): 
     df = pd.read_csv("data/sample_data.csv", index_col=0)
+    # some standard dataframe methods
     print(df)
     print(df.index)
-    print(df.columns)
-    print(df.values)
     print(type(df.index))
+
+    print(df.columns)
     print(type(df.columns))
+    
+    print(df.values)
     print(type(df.values))
     print()
 
+    # extracting a single column can create a new dataframe or a series
     a = df[['state']]    # list parameter => returns a dataset
+    print(f"df[['state']] returns: \n\t{type(a)}")
+    
     b = df['state']      # column parameter => returns a series
-    print(type(a))
-    print(type(b))
+    print(f"df['state'] returns: \n\t{type(b)}")
     print()
     
+    
     # using .loc
+    # loc uses the index of the dataset.  A lot of datasets have an index of
+    # integers, but the index can be any data type, often str
+    
+    # print 1 row
     print(df.loc['Niko'])   # loc uses index
     print()
+    # print several rows
     print(df.loc['Niko':'Dean'])
     print()
 

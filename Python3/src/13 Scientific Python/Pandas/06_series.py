@@ -11,10 +11,10 @@ pd.set_option('display.width', 1000)
 pd.set_option('display.precision', 2)
 
 ##########
-title("create a series")
+title("create a series with different indices")
 s1 = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=['A', 'B', 'C', 'D', 'E'])
-s2 = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=range(10, 20, 2))
 print(s1, end="\n\n")
+s2 = pd.Series(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], index=range(10, 20, 2))
 print(s2, end="\n\n")
 
 ##########
@@ -31,7 +31,7 @@ print(salaries)
 ##########
 title("select from series")
 print(salaries[["sara", "pedro", "zoe"]])
-print(salaries.john)
+print(f"john's salary: {salaries.john}")
 print(salaries[salaries < 40000])
 
 ##########
@@ -59,9 +59,11 @@ print(salaries / 3)
 ##########
 title("add series together")
 s1 = salaries[['john', 'pedro']]
+print(f"s1:\n{s1}\n")
 s2 = salaries[['zoe']]
+print(f"s2:\n{s2}\n")
 s = s1.add(s2, fill_value=0)
-print(s)
+print(f"s1.add(s2):\n{s}\n")
 
 ##########
 title("check for non-nulls in series")
