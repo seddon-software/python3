@@ -20,6 +20,10 @@ def twoD_Gaussian(xdata_tuple, amplitude, xo, yo, σₓ, σᵧ, ϑ, offset):
     g = g.transpose()
     return g.ravel()
 
+def getResult(p):
+    return (f"amp={p[0]:.2f}, xo={p[2]:.2f}, yo={p[1]:.2f}",
+            f"σₓ={p[4]:.2f}, σᵧ={p[3]:.2f}, ϑ={p[5]:.2f}, offset={p[6]:.2f}");
+
 def initial_guess():
     amplitude = 3
     xo = 100
@@ -53,14 +57,11 @@ ax2.set_title("fitted 2D Gaussian")
 popt, pcov = opt.curve_fit(twoD_Gaussian, (x, y), np.ravel(data_raw), p0=initial_guess())
 
 data_fitted = twoD_Gaussian((x, y), *popt)
-print(popt)
+print(getResult(popt))
 ax2.imshow(data_raw.reshape(sizeX, sizeY), cmap=plt.cm.jet)
 ax2.contour(y.transpose(), x.transpose(), data_fitted.reshape(sizeX, sizeY), 4, colors='w')
 
 
-def getResult(p):
-    return (f"amp={p[0]:.2f}, xo={p[2]:.2f}, yo={p[1]:.2f}",
-            f"σₓ={p[4]:.2f}, σᵧ={p[3]:.2f}, ϑ={p[5]:.2f}, offset={p[6]:.2f}");
 
 ax1.imshow(data_raw)
 plt.text(25, 170, getResult(popt)[0], bbox=dict(facecolor='yellow', alpha=0.5), fontsize=12)
