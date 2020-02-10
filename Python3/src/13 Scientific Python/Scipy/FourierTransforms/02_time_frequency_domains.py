@@ -10,16 +10,16 @@ df = 1.0/signal_length  # frequency between points in
                         # in frequency domain [Hz]
 t=scipy.arange(0,signal_length ,dt)     # the time vector
 
-n_t=len(t)              # length of time vector i
+n_t = len(t)              # length of time vector i
 
 # create signal
-y= scipy.sin(2*pi*155*t+pi/3) + scipy.sin(2*pi*50*t) + scipy.sin(2*pi*70*t+pi/4)
+y = scipy.sin(2*pi*155*t+pi/3) + scipy.sin(2*pi*50*t) + scipy.sin(2*pi*70*t+pi/4)
 
 # compute fourier transform
-f=scipy.fft(y)
+f = scipy.fft(y)
 
 # work out meaningful frequencies in fourier transform
-freqs=df*scipy.arange(0,(n_t-1)/2.,dtype='d')   # d=double precision float
+freqs = df*scipy.arange(0,(n_t-1)/2., dtype='d')   # d=double precision float
 n_freq=len(freqs)
 
 # plot input data y against time
@@ -34,6 +34,8 @@ plt.plot(freqs,abs(f[0:n_freq]),
              label='abs(fourier transform)')
 plt.xlabel('frequency [Hz]')
 plt.ylabel('abs(DFT(signal))')
+
+plt.tight_layout()
 
 # save plot to disk
 plt.savefig('fft-results.pdf')
