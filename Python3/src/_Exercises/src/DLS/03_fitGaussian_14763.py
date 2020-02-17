@@ -19,7 +19,8 @@ def main():
     print(data.keys())
     
     plt.gcf().canvas.set_window_title(fileName)
-    plt.gca().set_title("gaussian fitting")
+    ax = plt.gca()
+    ax.set_title("gaussian fitting")
     x = data['gonx'][250:-401]
     y = data['i_pin'][250:-400]
     dy = np.diff(y)
@@ -34,6 +35,9 @@ def main():
     fit, estimated_covariance = curve_fit(gauss, x, dy, p0=initialGuess())
     print(fit)
     plt.plot(x, dy)
+    ax.set_xlabel('d(gonx)')
+    ax.set_ylabel('i_pin')
+
     plt.plot(x, gauss(x, *fit), 'r-',
              label=f'peak={fit[0]:.2f} μ={fit[1]:.2f} σ={fit[2]:.2f}')
     plt.legend()

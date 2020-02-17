@@ -219,38 +219,18 @@ def main():
     mainframe.grid_columnconfigure(2, weight=0, minsize=300)
     drawGrid(mainframe)
     addButtons(mainframe)
-    initialCells = """  ---26----
-                        6---1---3
-                        4---3--18
-                        -7182-6-5
-                        92----8-7
-                        ---------
-                        --------9
-                        -------4-
-                        5---691--"""
     initialCells = '''
-                   ---34-9-1
-                   -3-8--2--
-                   ---129---
-                   -96-135--
-                   -53------
-                   7----593-
-                   18---2---
-                   3--4-----
-                   -------68
+                   5--8-----
+                   -18-----3
+                   7--1-6---
+                   92------6
+                   --7-5----
+                   6859--4--
+                   --2-9-8-7
+                   ---------
+                   --4----32
                    ''' 
-    initialCells = '''
-                   --52---4-
-                   -14-3--8-
-                   -----89--
-                   -79------
-                   2---8---5
-                   ------89-
-                   --75-----
-                   -5--2-63-
-                   -9---12--
-                   ''' 
-    initialCells = scrape_sudoku.getPuzzle()
+    # initialCells = scrape_sudoku.getPuzzle()
     initialCells = re.sub(r'\s', '', initialCells)  # remove white space
     initialize(initialCells)
     removeCandidates()
