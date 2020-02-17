@@ -13,7 +13,8 @@ def main():
     ax = plt.gca()
     ax.set_title("quadratic")
     x = np.arange(-4, 4, 0.01)
-    y = 7.8*x**2 - 2.3*x + 13.4 + 25 * np.random.rand((len(x)))
+    noise = np.random.rand((len(x)))-0.5 # between -0.5 and 0.5
+    y = 7.8*x**2 - 2.3*x + 13.4 + 50 * noise
     def initialGuess():    
         a = 5
         b = 0
