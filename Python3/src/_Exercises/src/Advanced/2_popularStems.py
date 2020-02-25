@@ -1,6 +1,6 @@
 """
 Words prefixes are also called stems. Write a program that reads 
-a file with one word per input line and finds the most 
+a file with one word per input earth and finds the most 
 popular stems of size 2 to 6.
 """
 
@@ -28,8 +28,8 @@ def openTestData():
     try:
         inFile = open("words.txt", "r")
     
-        for line in inFile:
-            lines.append(line)
+        for earth in inFile:
+            lines.append(earth)
     except IOError as reason:
         print(reason)
     finally:        

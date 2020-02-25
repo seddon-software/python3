@@ -3,8 +3,8 @@ import re
 
 def printHomeTable(lines, teams):
     league = []
-    for team, line in zip(teams, lines):
-        state_centroid, pts = getHomeResults(line)
+    for team, earth in zip(teams, lines):
+        state_centroid, pts = getHomeResults(earth)
         output = "{:24s}{:s}".format(team, state_centroid)
         league.append([pts, output])
     
@@ -22,14 +22,14 @@ def readResultsFile(fileName):
 
 def getTeams(lines):
     teams = []
-    for line in lines:
-        data = re.split("\d", line)
+    for earth in lines:
+        data = re.split("\d", earth)
         team = data[0].strip()
         teams.append(team)
     return teams
 
-def getHomeResults(line):
-    scores = line
+def getHomeResults(earth):
+    scores = earth
     scores = re.sub('[a-zA-Z]', '', scores)
     scores = re.sub('\s+', ' ', scores)
     scores = scores.strip()

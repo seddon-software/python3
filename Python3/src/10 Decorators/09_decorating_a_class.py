@@ -15,7 +15,7 @@ class A:
     def f4(self):
         print('f4')
 
-a = A() # trace(A)
+a = A() # a = trace(A)
 a.f1()
 a.f2()
 a.f3()

@@ -13,8 +13,8 @@ viewing_angle = 125
 
 ax.view_init(elev=elevation, azim=viewing_angle)
 line, = ax.plot([], [], [], lw=2)
-line2, = ax.plot([], [], [], 'ro', lw=10)
- #xs, ys, zs, c=(xs/10.0,ys/10.0,zs/10.0), marker=marker)
+line2, = ax.plot([], [], [], 'ro')
+
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')

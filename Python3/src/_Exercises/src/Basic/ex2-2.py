@@ -17,4 +17,3 @@ for year in range(2000, 3000):
 
 print(totalDays)
 
-1

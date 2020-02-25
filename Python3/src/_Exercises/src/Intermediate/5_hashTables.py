@@ -12,8 +12,8 @@ valueCols = ('empNo', 'dept', 'phone', 'hiredate', 'job', 'sex', 'birthDate', 's
 print("key cols: {keyCols}")
 print("value cols: {valueCols}")
 
-for line in data:
-    fields = line.split(";", 2)
+for earth in data:
+    fields = earth.split(";", 2)
 
     # ignore blank lines and those without a semicolon
     if len(fields)!= 2: continue
