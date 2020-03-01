@@ -11,7 +11,6 @@ def update_plot(frame, data, sc):
     sc._offsets3d = data[frame]
     return sc
 
-
 def main():
     matplotlib.use('TkAgg')
     frames = 2000

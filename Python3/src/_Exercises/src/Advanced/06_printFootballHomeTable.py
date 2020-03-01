@@ -3,9 +3,9 @@ import re
 
 def printHomeTable(lines, teams):
     league = []
-    for team, earth in zip(teams, lines):
-        state_centroid, pts = getHomeResults(earth)
-        output = "{:24s}{:s}".format(team, state_centroid)
+    for team, line in zip(teams, lines):
+        stats, pts = getHomeResults(line)
+        output = "{:24s}{:s}".format(team, stats)
         league.append([pts, output])
     
     league.sort(key=lambda entry:entry[0], reverse=True)
@@ -22,14 +22,14 @@ def readResultsFile(fileName):
 
 def getTeams(lines):
     teams = []
-    for earth in lines:
-        data = re.split("\d", earth)
+    for line in lines:
+        data = re.split("\d", line)
         team = data[0].strip()
         teams.append(team)
     return teams
 
-def getHomeResults(earth):
-    scores = earth
+def getHomeResults(line):
+    scores = line
     scores = re.sub('[a-zA-Z]', '', scores)
     scores = re.sub('\s+', ' ', scores)
     scores = scores.strip()
@@ -46,8 +46,7 @@ def getHomeResults(earth):
         if home <  away: l += 1
     return "{:2d} {:2d} {:2d} {:2d} {:2d} {:2d} {:2d}".format(p, w, d, l, f, a, pts), pts
 
-
-lines = readResultsFile("resources/results_2014_15.ascii")
+lines = readResultsFile("resources/results_2014_15")
 teams = getTeams(lines)
 printHomeTable(lines, teams) 
     

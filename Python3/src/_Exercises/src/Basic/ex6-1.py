@@ -1,7 +1,9 @@
-# Create a class that represents a bank account.  
-# Add methods to allow a customer to deposit() and withdraw() money 
-# and provide a method getBalance().  
-# Write a test program to check out your class.
+'''
+Create a class that represents a bank account.  
+Add methods to allow a customer to deposit() and withdraw() money 
+and provide a method getBalance().  
+Write a test program to check out your class.
+'''
 
 class BankAccount:
     def __init__(self, accountName):

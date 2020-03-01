@@ -1,7 +1,8 @@
-# Create a class that represents a bank account.  
-# Add methods to allow a customer to deposit() and withdraw() money 
-# and provide a method getBalance().  
-# Write a test program to check out your class.
+'''
+Modify the previous example to add facilities for providing an overdraft.  
+You will need to define a setOverdraft() method.
+'''
+
 
 class BankAccount:
     def __init__(self, accountName):

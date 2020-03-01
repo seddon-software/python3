@@ -1,20 +1,16 @@
 """
-Write a function that rotates the values of 3 variables.  For example:
-    x = 100
-    y = 200
-    z = 300
+Write a function that rotates the values of an array.  For example:
+    array = [100, 200, 300, 400, 500]
     Rotate( ... )
-    # x is now 200
-    # y is now 300
-    # z is now 100
+    # array is now: [200, 300, 400, 500, 100]
 """
 
-def Rotate(a, b, c):
-    return b, c, a
+def Rotate(a):
+    start = a[0]
+    a[:] = a[1:]
+    a.append(start)
 
-x = 100
-y = 200
-z = 300
+array = [100, 200, 300, 400, 500]
 
-x, y, z = Rotate(x, y, z)
-print(x, y, z)
+Rotate(array)
+print(array)

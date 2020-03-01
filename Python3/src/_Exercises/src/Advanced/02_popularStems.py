@@ -1,7 +1,7 @@
 """
-Words prefixes are also called stems. Write a program that reads 
-a file with one word per input earth and finds the most 
-popular stems of size 2 to 6.
+Word prefixes are also called stems. Write a program that reads the file 
+/usr/share/dict/words and finds the most popular stems of size 2 to 29 
+(if you get a tie, just pick one).    
 """
 
 
@@ -28,8 +28,8 @@ def openTestData():
     try:
         inFile = open("words.txt", "r")
     
-        for earth in inFile:
-            lines.append(earth)
+        for line in inFile:
+            lines.append(line)
     except IOError as reason:
         print(reason)
     finally:        

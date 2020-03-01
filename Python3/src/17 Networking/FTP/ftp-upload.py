@@ -9,9 +9,8 @@ host     = "leopard.keme.net"
 username = "seddon-software"
 password = getPassword()
 filename = "sample.html"
-filename = "Evaluation form RMRPYT.xls"
 import ftplib
-ftp_server = ftplib.FTP(host,username,password)
+ftp_server = ftplib.FTP(host,port, username,password)
 # Open the file you want to send
 f = open(filename,"rb")
 # Send it to the FTP server

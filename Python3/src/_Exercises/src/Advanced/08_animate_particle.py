@@ -76,6 +76,9 @@ def animate(frameNo):
     p.next(dt=2)       
     h = p.history().T   # must transpose buffer to extract X,Y and Z
     X, Y, Z = h[0], h[1], h[2]
+    X = np.append(X, [0.0])
+    Y = np.append(Y, [0.0])
+    Z = np.append(Z, [0.0])
     orbit.set_data(X, Y)
     orbit.set_3d_properties(Z)
     return orbit        # the artist to be updated

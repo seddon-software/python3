@@ -1,3 +1,27 @@
+'''
+Write a program with a Particle class that plots the position of the particle
+as it orbits a central point under the influence of an inverse square force (F).
+
+Define a the class along the lines:
+    class Particle:
+        def __init__(self, name, x0, v0): ...
+        def getPosition(self): ...
+        def next(self, dt): ...
+
+where x0 and v0 are the initial position and velocity of the particle.  The 
+next method calculates the new position (x) and velocity (v) of the particle
+a time interval dt later.
+
+Call the next method repeatedly and use the formulae:
+    dv = F * dt / m 
+    dx = v * dt
+to calculate the new position (x) and velocity (v) of the particle:
+    v = v + dv
+    x = x + dx
+    
+Plot the resulting orbit in 3D with matplotlib.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -6,10 +30,10 @@ k = 10.0
 m = 1.0
 
 class Particle:
-    def __init__(self, name, x, v):
+    def __init__(self, name, x0, v0):
         self.name = name
-        self.x = x
-        self.v = v
+        self.x = x0
+        self.v = v0
     def getPosition(self):
         return self.x
     def next(self, dt):

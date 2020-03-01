@@ -1,42 +1,44 @@
 import scipy
 import matplotlib.pyplot as plt
-pi = scipy.pi
+import numpy as np
+
+π = scipy.pi
 
 signal_length = 0.5     # [seconds]
-
 sample_rate = 500       # sampling rate [Hz]
 dt = 1.0/sample_rate    # time between two samples [s]
-df = 1.0/signal_length  # frequency between points in
-                        # in frequency domain [Hz]
-t=scipy.arange(0,signal_length ,dt)     # the time vector
+df = 1.0/signal_length  # frequency between points in frequency domain [Hz]
 
-n_t = len(t)              # length of time vector i
+t = scipy.arange(0,signal_length ,dt)     # the time vector
 
-# create signal
-y = scipy.sin(2*pi*155*t+pi/3) + scipy.sin(2*pi*50*t) + scipy.sin(2*pi*70*t+pi/4)
+# create synthetic signal (without noise)
+y = scipy.sin(2*π*155*t+π/3) + scipy.sin(2*π*50*t) + scipy.sin(2*π*70*t+π/4)
 
 # compute fourier transform
 f = scipy.fft(y)
 
 # work out meaningful frequencies in fourier transform
-freqs = df*scipy.arange(0,(n_t-1)/2., dtype='d')   # d=double precision float
-n_freq=len(freqs)
+freqs = df*scipy.arange(0, (len(t)-1)/2., dtype='d')   # d=double precision float
 
 # plot input data y against time
-plt.subplot(2,1,1)
+rows = 2
+cols = 1
+plotNo = 1
+plt.subplot(rows, cols, plotNo)
 plt.plot(t,y,label='input data')
-plt.xlabel('time [s]')
+plt.xlabel('time [sec]')
 plt.ylabel('signal')
 
 # plot frequency spectrum
-plt.subplot(2,1,2)
-plt.plot(freqs,abs(f[0:n_freq]),
-             label='abs(fourier transform)')
+plotNo = 2
+plt.subplot(rows, cols, plotNo)
+plt.plot(freqs,abs(f[0:len(freqs)]), label='abs(fourier transform)')
 plt.xlabel('frequency [Hz]')
 plt.ylabel('abs(DFT(signal))')
 
-plt.tight_layout()
+plt.tight_layout()  # make sure everything fits in window
 
 # save plot to disk
 plt.savefig('fft-results.pdf')
-plt.show()      # and display plot on screen
+plt.gcf().canvas.set_window_title("Fast Fourier Transform")
+plt.show()

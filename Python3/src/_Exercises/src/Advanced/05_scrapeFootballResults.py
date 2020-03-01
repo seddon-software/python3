@@ -1,5 +1,5 @@
 '''
-This web scraping program will extract all the state_centroid for the Football Premiership season 2014-5
+This web scraping program will extract all the results for the Football Premiership season 2014-5
 and produce a table that looks like:
  
 Arsenal                   5–0  3–0  0–0  2–1  2–0  2–2  2–1  4–1  2–2  1–2  4–1  2–1  1–0  3–0  0–0  0–1  1–1  4–1  3–0      

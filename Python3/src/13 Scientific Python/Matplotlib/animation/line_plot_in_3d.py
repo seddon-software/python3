@@ -35,16 +35,18 @@ def animate(i):
     x = 2*t**3+1
     y = 2*t**2
     z = t
-    
     # there is no set_data for 3D, so you have to do it this way
     line.set_data(x, y)
     line.set_3d_properties(z)
     return line        # the artist to be updated
 
+# create animation object
+# note anim keeps a reference to the FuncAnimation object
+# without which the animation dies premeturely
+animinmationObject = animation.FuncAnimation(fig, animate, init_func=init, \
+                                             frames=650, interval=50)
 
-anim = animation.FuncAnimation(fig, animate, init_func=init, frames=10000, \
-                               interval=50)
-
+plt.gcf().canvas.set_window_title("3D Curve Animation")
 plt.show()
 
 
