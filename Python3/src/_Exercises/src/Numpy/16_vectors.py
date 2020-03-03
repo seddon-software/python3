@@ -1,3 +1,7 @@
+'''
+Create two vectors representing points in 3D space.
+Calculate the distance between the points.
+'''
 import numpy as np
 
 p1 = np.array([2.5, 4.1, 3.7])

@@ -1,0 +1,108 @@
+1.
+Create 4x6 array of floats between 3.5 and 5.5.  Display the results to 3 decimal 
+places.
+
+2.
+Create a 4x6 array of random ints between 10 and 100
+
+
+3.
+Create a 4x6 array of random ints between 10 and 100.  Set all the even
+numbers to 100.
+
+
+4.
+Create a 4x6 array of random ints between 10 and 100.  Create a new 1D array
+with all the numbers in the first array that are less than 50.
+
+
+5.
+Create a 4x6 array of random integers between 10 and 100.
+Create a new 4x3 array of the lowest 50% of the original array whilst 
+preserving order.
+
+
+
+6.
+Create a 4x6 array of random integers between 10 and 100.
+Set the lowest 50% of the array to 0.
+
+
+
+7.
+Create a 6x4 array of ints between 10 and 14 where the first row is filled
+with 10, the second with 11 and so on.
+
+
+8.
+Create a 8x5 array of ints using the "tile" method that looks like:
+
+    [[10 11 12 13 10]
+     [11 12 13 10 11]
+     [12 13 ... 
+           ... 11 12]
+     [13 10 11 12 13]]
+
+
+
+
+9.
+Create a 4x6 array of ints.  Swap columns 2 and 4.
+
+
+10.
+Create a 3x10 array.  Rotate the array by 90 degrees, 4 times, so you get back
+to the original array.
+
+
+11.
+Find the intersection of two 1D arrays
+
+
+12.
+Create two 1D int arrays of equal size.  Create a new array of the
+same size, selecting elements from the first array when the element
+in this array is even, and selecting elements from the second array 
+when the element in the first array is odd.
+
+
+
+13.
+Create a 4x6 array of random ints between 10 and 100.
+Look up what it means to define a masked array and then create
+a masked array where all values in the original array that are
+less than 50 are masked out.
+
+
+14.
+Create a 4x6 array of random ints between 10 and 100.
+Filter this array and produce a 1D array of the numbers divisible by 3.
+
+15.
+Create a 4x6 array of random ints between 10 and 100.  Then create
+a 4x6 array of indices of representing rankings of the first array.
+For example a 2x3 array
+    [[49 56 61]
+     [63 39 97]]
+yields the rankings
+    [[4 0 1]
+     [2 3 5]]
+
+
+16.
+Create two vectors representing points in 3D space.
+Calculate the distance between the points.
+
+17.
+Create a 1D array of random ints of size (30,) containing only the numbers
+10, 11, 12, 13 or 14. Now create 30 'one hot encodings' for the original array.
+For example a set of 'one hot encodings' for:
+    [20, 22, 21, 22, 20, 22]
+would be:
+    [1 0 0]
+    [0 0 1]
+    [0 1 0]
+    [0 0 1]
+    [1 0 0]
+    [0 0 1]
+
