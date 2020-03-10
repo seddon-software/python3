@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import geopandas
+import geopandas.datasets
 import matplotlib.pyplot as plt
 
 pd.set_option('display.precision', 1)
@@ -38,12 +38,10 @@ canada.plot(ax=ax, color='white', edgecolor='black')
 
 # plot points from GeoDataFrame
 Texas_gdf.plot(ax=ax, color='blue', markersize=0.01)
-#gdf.crs = {"init": "epsg:3857"}
-#gdf = gdf.to_crs(epsg=3857)
 ax.set_xlim([-130, -60])
 ax.set_ylim([20, 55])
 
-# change the aspect ratio because we latitude needs scaling to Mercator
+# change the aspect ratio because latitude needs scaling to Mercator
 # but setting up a custom scale is too complicated
 # the scaling will be correct for 40 degrees latitude
 ax.set_aspect(1/np.cos(40.0*np.pi/180.0))

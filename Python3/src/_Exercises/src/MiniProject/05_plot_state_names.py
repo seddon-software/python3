@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import geopandas
+import geopandas.datasets
 import matplotlib.pyplot as plt
 
 pd.set_option('display.precision', 1)
