@@ -5,9 +5,9 @@ the Cartesian unit vectors:
     jHat = [0, 1, 0]
     kHat = [0, 0, 1]
 Note that the transfomation for kHat causes a singularity in Spherical 
-coordinates, so try unit vectors very near kHat instead:
-    kHat_plus  = [0,0.0001,0])
-    kHat_minus = [0,0.0001,1])
+coordinates, so try vectors very near kHat instead:
+    kHat_plus  = [+0.0001,0,1])
+    kHat_minus = [-0.0001,0,1])
 '''
 import numpy as np
 from numpy import sqrt, arccos
