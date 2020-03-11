@@ -38,9 +38,6 @@ def set_title(title):
 
 def load_image(infilename):
     img = Image.open(infilename)
-#     width = int(img.width * 2)
-#     height = int(img.height * 2)
-#     img = img.resize((width, height))
     img.load()
     data = np.asarray( img, dtype="int32" )
     return data
