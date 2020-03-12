@@ -37,6 +37,7 @@ def main():
     axes = [ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8]
     plotSomeData(axes)
     plotSomeExtraData(axes)
+    plt.tight_layout()
     plt.show()
 
 main()

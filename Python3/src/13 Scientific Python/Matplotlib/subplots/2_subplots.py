@@ -39,7 +39,10 @@ def subplot5x4():
             ax[row, col].plot(t2, np.cos(2*np.pi*t2), style)
 
 subplot2x1()
+plt.tight_layout()
 subplot2x3()
+plt.tight_layout()
 subplot5x4()
+plt.tight_layout()
 plt.show()
 

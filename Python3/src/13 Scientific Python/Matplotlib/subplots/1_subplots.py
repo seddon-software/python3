@@ -19,7 +19,7 @@ ax1.plot(t1, f(t1), 'bo')
 ax2.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
 ax3.plot(t2, np.cos(2*np.pi*t2), 'r--')
 
-
+plt.tight_layout()
 plt.show()
 
 1
