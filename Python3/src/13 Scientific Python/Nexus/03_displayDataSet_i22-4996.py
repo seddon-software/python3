@@ -3,25 +3,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 
+
 # open Nexus file
 f = h5py.File("data/i22-4996.nxs", "r")
 
 # get dataset
-ds = f["/entry1/Hotwaxs"]
-
-# convert to numpy array
-data = ds["data"][()]
+ds = f["/entry1/Hotwaxs/data"]
 
 # check shape (1,1,512)
-print(data.shape)
+print(f"dataset shape = {ds.shape}")
 
-# extract data as 1D array
-X = data[0,0]
-size = X.shape[0] 
-Y = np.arange(size)
+# extract last dimension to numpy array
+Y = ds[(0,0)]
+size = Y.shape[0] 
+X = np.arange(size)
+# window size 51, polynomial order 3
+Y_filtered = savgol_filter(Y, 51, 3) 
 
-Xhat = savgol_filter(X, 51, 3) # window size 51, polynomial order 3
-plt.plot(Y, X)
-plt.plot(Y, Xhat)
+
+ax = plt.gca()
+ax.set_title("i22-4996.nxs")
+ax.set_xlabel("X")
+ax.set_ylabel("Hotwaxs")
+plt.plot(X, Y)
+plt.plot(X, Y_filtered)
 plt.show()
-

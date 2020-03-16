@@ -35,8 +35,8 @@ def main():
     fit, estimated_covariance = curve_fit(gauss, x, dy, p0=initialGuess())
     print(fit)
     plt.plot(x, dy)
-    ax.set_xlabel('d(gonx)')
-    ax.set_ylabel('i_pin')
+    ax.set_xlabel('gonx')
+    ax.set_ylabel('d(i_pin)')
 
     plt.plot(x, gauss(x, *fit), 'r-',
              label=f'peak={fit[0]:.2f} μ={fit[1]:.2f} σ={fit[2]:.2f}')
