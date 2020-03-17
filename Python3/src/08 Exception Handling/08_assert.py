@@ -15,8 +15,10 @@ def CalculateQuartile(percent):
         quartile = 3
     if percent > 75:
         quartile = 4
-    return quartile
+    print(f"{percent} is in quartile {quartile}")
 
-
-print(CalculateQuartile(34))
-print(CalculateQuartile(104)) 
+CalculateQuartile(17)
+CalculateQuartile(34)
+CalculateQuartile(56)
+CalculateQuartile(87)
+CalculateQuartile(104)
