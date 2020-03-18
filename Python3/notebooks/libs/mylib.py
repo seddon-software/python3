@@ -8,8 +8,7 @@ def f4():
     print("f4")
 
 # testing code
-if __name__ == "__main__":
-    f1()
-    f2()
-    f3()
-    f4()
+f1()
+f2()
+f3()
+f4()
