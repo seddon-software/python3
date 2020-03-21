@@ -26,7 +26,7 @@ def main():
     print(df.sample(5))    # random sample of rows
     print(df.shape)        # number of rows/columns in a tuple
     print(df.describe())   # calculates measures of central tendency
-    print(df.info())       # memory footprint and datatypes
+    df.info()              # memory footprint and datatypes
 
     tmax = df.sort_values('tmax', axis=0, ascending=False)
     pd.set_option('display.max_rows', 20)

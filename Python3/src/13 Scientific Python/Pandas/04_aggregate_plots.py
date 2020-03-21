@@ -29,7 +29,7 @@ def main():
     oxford_data.drop(['year', 'month', 'air-frost-days', 'rain(mm)', 'sun(hours)', 'comment'], axis = 1, inplace = True)
 
     # group results into 4 year periods
-    # the new column (period) becomes the index
+    # the groupby column (period) becomes the index
     summary = oxford_data.groupby(['period']).aggregate(np.mean)
 
     # plot the data

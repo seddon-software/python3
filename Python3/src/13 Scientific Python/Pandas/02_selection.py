@@ -5,7 +5,17 @@ pd.set_option('display.width', None)        # None means all data displayed
 pd.set_option('display.max_rows', None)
 
 def main(): 
-    df = pd.read_csv("data/sample_data.csv", index_col=0)
+    '''
+            lerwick_data = pd.read_csv("data/lerwick.txt", 
+                                   skiprows = 7,
+                                   engine = 'python',
+                                   names = column_names, 
+                                   skipinitialspace = True, 
+                                   sep = '[*# ]+')
+    '''
+    df = pd.read_csv("data/sample.csv", 
+                     skipinitialspace=True, 
+                     index_col=0)
     # some standard dataframe methods
     print(df)
     print(df.index)
@@ -19,11 +29,11 @@ def main():
     print()
 
     # extracting a single column can create a new dataframe or a series
-    a = df[['state']]    # list parameter => returns a dataset
-    print(f"df[['state']] returns: \n\t{type(a)}")
+    a = df[['County']]    # list parameter => returns a dataset
+    print(f"df[['County']] returns: \n\t{type(a)}")
     
-    b = df['state']      # column parameter => returns a series
-    print(f"df['state'] returns: \n\t{type(b)}")
+    b = df['County']      # column parameter => returns a series
+    print(f"df['County'] returns: \n\t{type(b)}")
     print()
     
     
@@ -32,16 +42,16 @@ def main():
     # integers, but the index can be any data type, often str
     
     # print 1 row
-    print(df.loc['Niko'])   # loc uses index
+    print(df.loc['Peter'])   # loc uses index
     print()
     # print several rows
-    print(df.loc['Niko':'Dean'])
+    print(df.loc['Peter':'Bill'])
     print()
 
     # selecting rows and columns
-    print(df.loc[['Dean', 'Cornelia'], ['age', 'state', 'score']])
+    print(df.loc[['Peter', 'Bill'], ['County', 'Height', 'Weight']])
     print()
-    print(df.loc[:, ['food', 'color']]) # all rows, some columns
+    print(df.loc[:, ['County', 'Gender']]) # all rows, some columns
     print()
 
     # using iloc
