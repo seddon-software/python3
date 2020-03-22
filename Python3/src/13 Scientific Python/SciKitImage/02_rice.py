@@ -24,6 +24,7 @@ print("Shape of raw image: {}".format(rice.shape))
 
 # algorithms work with monochrome images
 rice = rice[:,:,0]
+print(rice)
 print("Shape of red image: {}".format(rice.shape))
 set_title("monchrome image")
 plt.imshow(rice, interpolation="none", cmap="gray")

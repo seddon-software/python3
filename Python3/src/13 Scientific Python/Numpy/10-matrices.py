@@ -7,9 +7,14 @@
 import numpy as np
 
 # matrix multiplication (not element wise multiplication)
-a = np.matrix( [[3,4,5],[2,3,8],[4,1,7]] ); print(a)
-b = np.matrix( [[2,3,4],[1,2,7],[3,0,6]] ); print(b)
+a = np.matrix( [[3,4,5],[2,3,8],[4,1,7],[2,1,2]] ); print(a)
+b = np.matrix( [[2,3,1,6],[1,2,4,5],[3,0,2,5]] ); print(b)
 c = a * b; print(c)
+
+# matrix multiplication using @ (not element wise multiplication)
+a = np.array( [[3,4,5],[2,3,8],[4,1,7],[2,1,2]] ); print(a)
+b = np.array( [[2,3,1,6],[1,2,4,5],[3,0,2,5]] ); print(b)
+c = a @ b; print(c)
 
 a = np.matrix( [[3,5],[4,1]] ); print(a)
 print("Transpose"); print(a.T)

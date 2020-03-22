@@ -11,11 +11,12 @@ names = {index:name for name,index in zip(iris.target_names, [0,1,2])}
 feature = pd.DataFrame(iris.data, columns=iris.feature_names)
 response = pd.DataFrame(iris.target, columns=['target'])
 response['target_names'] = response.apply(lambda row:names[row.target], axis='columns')
-
+print(response)
 # combine dataframes
 combined = pd.concat([feature, response], axis='columns', sort=False)
 print(combined)
-
+# print(feature)
+# print(response)
 # print shapes
 print("shape of feature matrix: {}".format(iris.data.shape))
 print("shape of response matrix: {}".format(iris.target.shape))
