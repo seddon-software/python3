@@ -16,6 +16,7 @@ iris_df = pd.melt(iris_df, id_vars="species",
                   var_name='measurement', value_name='cm') 
 print(iris_df.sample(20))
 print(iris_df)
+
 # Draw a categorical scatterplot to show each observation
 sns.swarmplot(x="measurement", 
               y="cm", 
