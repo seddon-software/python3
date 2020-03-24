@@ -1,4 +1,4 @@
-/home/wns35789/.local/lib/python3.7/site-packages/myexample.py
-/home/wns35789/.local/lib/python3.7/site-packages/__pycache__/myexample.cpython-37.pyc
-/home/wns35789/.local/lib/python3.7/site-packages/_myexample.cpython-37m-x86_64-linux-gnu.so
-/home/wns35789/.local/lib/python3.7/site-packages/CPP_SWIG_example-1.0-py3.7.egg-info
+/Users/seddon/.local/lib/python3.7/site-packages/myexample.py
+/Users/seddon/.local/lib/python3.7/site-packages/__pycache__/myexample.cpython-37.pyc
+/Users/seddon/.local/lib/python3.7/site-packages/_myexample.cpython-37m-darwin.so
+/Users/seddon/.local/lib/python3.7/site-packages/CPP_SWIG_example-1.0-py3.7.egg-info
