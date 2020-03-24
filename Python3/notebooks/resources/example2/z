@@ -1,0 +1,3 @@
+python setup.py -v build_ext
+python setup.py install --record files.txt --user
+
