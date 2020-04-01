@@ -1,5 +1,4 @@
 import pandas as pd
-import pylab as pl
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', None)        # None means all data displayed
 pd.set_option('display.max_rows', None)

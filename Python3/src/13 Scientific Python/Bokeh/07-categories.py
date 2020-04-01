@@ -1,7 +1,9 @@
 import bokeh.plotting as bp
 import numpy as np
-
-bp.output_file("categories.html")
+from bokeh.palettes import Spectral4
+from bokeh.plotting import figure
+from bokeh.transform import factor_cmap
+bp.output_file("html/categories.html")
 
 teams = ['Juventus', 'Atletico Madrid', 'Leverkusen', 'Lokomotive Moscow']
 points = [13, 7, 6, 3]

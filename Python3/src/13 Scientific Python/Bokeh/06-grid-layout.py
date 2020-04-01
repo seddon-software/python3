@@ -1,7 +1,7 @@
 import bokeh.plotting as bp
 import numpy as np
 
-bp.output_file("grid-layout.html")
+bp.output_file("html/grid-layout.html")
 
 X = np.arange(0, 20, 2)
 Y1 = 50-X**2

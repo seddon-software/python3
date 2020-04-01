@@ -3,7 +3,8 @@ import bokeh.plotting as bp
 X = [1, 2, 3, 4, 5]
 Y = [14, 11, 8, 5, 2]
 
-bp.output_file("basic-glyphs.html")
+bp.output_file("html/basic-glyphs.html")
+# bp.output_notebook()
 fig = bp.figure(plot_width=800, plot_height=600)
 fig.circle(x=X, y=Y, radius=0.1)
 

@@ -1,7 +1,7 @@
 import bokeh.plotting as bp
 import numpy as np
     
-bp.output_file("vbar-stack.html")
+bp.output_file("html/vbar-stack.html")
 
 fig = bp.figure(plot_width=800, plot_height=600)
 
