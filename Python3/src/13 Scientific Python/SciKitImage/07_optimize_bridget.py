@@ -13,9 +13,9 @@ def createColorMap():
     N = 2
     vals = np.ones((N, 4))
     # colormap goes from nearly white to white
-    vals[:, 0] = np.linspace(0.85, 1, N)
-    vals[:, 1] = np.linspace(0.85, 1, N)
-    vals[:, 2] = np.linspace(0.85, 1, N)
+    vals[:, 0] = np.linspace(0.8, 1, N)
+    vals[:, 1] = np.linspace(0.8, 1, N)
+    vals[:, 2] = np.linspace(0.8, 1, N)
     print(vals)
     return ListedColormap(vals)
 
@@ -43,11 +43,11 @@ def load_image(infilename):
     return data
 
 plt.ion()
-image = load_image("images/chris.cropped.jpg")
+image = load_image("images/bridget.cropped.jpg")
 image = image / 256.0
 image = image[:,:,0]
 #figsize=(16.53, 11.69)
-sigma = 2
-threshold = 29
-spread = 1
+sigma = 1
+threshold = 25
+spread = 18.5
 doit(image, sigma, threshold, spread, dt=5)

@@ -10,6 +10,7 @@ points = [13, 7, 6, 3]
 fig = bp.figure(x_range=teams, 
               plot_height=250, 
               title="Champions League Table",
+              tooltips=TOOLTIPS,
               toolbar_location=None, 
               tools="")
 

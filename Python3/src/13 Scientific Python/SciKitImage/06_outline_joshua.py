@@ -6,29 +6,15 @@ import skimage.morphology as morphology
 import skimage.feature as feature
 from PIL import Image
 import time
-import scipy.misc
-from matplotlib.colors import ListedColormap
 
-def createColorMap():
-    N = 2
-    vals = np.ones((N, 4))
-    # colormap goes from nearly white to white
-    vals[:, 0] = np.linspace(0.85, 1, N)
-    vals[:, 1] = np.linspace(0.85, 1, N)
-    vals[:, 2] = np.linspace(0.85, 1, N)
-    print(vals)
-    return ListedColormap(vals)
 
 def doit(image, sigma, threshold, spread, dt):
     low = threshold / 256.0
     high = (threshold + spread) / 256.0
     set_title(f"sigma={sigma} low={low*256} high={high*256}")
     edges = feature.canny(image, sigma=sigma, low_threshold=low, high_threshold=high)
-    edges = np.invert(edges)
-    plt.imshow(edges, cmap=createColorMap())
+    plt.imshow(edges, cmap=plt.cm.gray) #    plt.show()
     plt.draw()
-    plt.axis('off')
-    plt.savefig("outfile.pdf")
     plt.pause(0.001)
     time.sleep(dt)
 
@@ -43,11 +29,11 @@ def load_image(infilename):
     return data
 
 plt.ion()
-image = load_image("images/chris.cropped.jpg")
+image = load_image("images/joshua.cropped.jpg")
 image = image / 256.0
 image = image[:,:,0]
-#figsize=(16.53, 11.69)
-sigma = 2
-threshold = 29
-spread = 1
-doit(image, sigma, threshold, spread, dt=5)
+
+for sigma in range(1, 2):
+    for threshold in range(31, 32):
+        for spread in range(2, 3):
+            doit(image, sigma, threshold, spread, dt=5.0)
