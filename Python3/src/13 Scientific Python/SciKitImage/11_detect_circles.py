@@ -33,19 +33,19 @@ pd.set_option('display.max_rows', None)
 #image = Image.open("images/chips.png")
 image = Image.open("images/tablets.jpg")
 image.load()
-#image = image.convert('L')
 image = np.asarray(image, dtype="int32")
 image = image[:,:,0]
+
 #edges = canny(image, sigma=2, low_threshold=25, high_threshold=59)
 edges = canny(image, sigma=5, low_threshold=30, high_threshold=60)
 
 
 # Detect two radii
-hough_radii = np.arange(33, 36, 1)
-hough_res = hough_circle(edges, hough_radii)
+tablet_radii = np.arange(33, 36, 1)
+accumulators_for_every_pixel = hough_circle(edges, tablet_radii)
 
-# Select the most prominent 3 circles
-accums, cx, cy, radii = hough_circle_peaks(hough_res, hough_radii, total_num_peaks=240)
+# Select the most prominent circles
+top_accumulators, cx, cy, radii = hough_circle_peaks(accumulators_for_every_pixel, tablet_radii, total_num_peaks=240)
 
 df = pd.DataFrame(zip(cx, cy, radii))
 df.columns = ['cx', 'cy', 'r']
