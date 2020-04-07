@@ -4,6 +4,7 @@ import scipy.ndimage as nd
 import matplotlib.pyplot as plt
 import skimage.morphology as morphology
 import skimage.feature as feature
+import skimage.io as io
 from PIL import Image
 import time
 import scipy.misc
@@ -13,13 +14,12 @@ def createColorMap():
     N = 2
     vals = np.ones((N, 4))
     # colormap goes from nearly white to white
-    vals[:, 0] = np.linspace(0.8, 1, N)
-    vals[:, 1] = np.linspace(0.8, 1, N)
-    vals[:, 2] = np.linspace(0.8, 1, N)
-    print(vals)
+    vals[:, 0] = np.linspace(0.85, 1, N)
+    vals[:, 1] = np.linspace(0.85, 1, N)
+    vals[:, 2] = np.linspace(0.85, 1, N)
     return ListedColormap(vals)
 
-def doit(image, sigma, threshold, spread, dt):
+def plotIt(image, sigma, threshold, spread, dt):
     low = threshold / 256.0
     high = (threshold + spread) / 256.0
     set_title(f"sigma={sigma} low={low*256} high={high*256}")
@@ -43,11 +43,10 @@ def load_image(infilename):
     return data
 
 plt.ion()
-image = load_image("images/joshua.cropped.jpg")
-image = image / 256.0
-image = image[:,:,0]
-#figsize=(16.53, 11.69)
-sigma = 0
-threshold = 32
-spread = 2
-doit(image, sigma, threshold, spread, dt=5)
+image = io.imread("images/chris.jpg", as_gray=True)
+
+
+sigma = 2
+threshold = 29
+spread = 1
+plotIt(image, sigma, threshold, spread, dt=10)
