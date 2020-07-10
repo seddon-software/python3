@@ -28,4 +28,4 @@ for cmap in colormaps:
     fig.colorbar(surface, shrink=0.5, aspect=5)
     plt.draw()
     plt.pause(0.001)
-    time.sleep(0.5)
+    time.sleep(0.005)

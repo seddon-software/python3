@@ -49,4 +49,5 @@ image = io.imread("images/chris.jpg", as_gray=True)
 sigma = 2
 threshold = 29
 spread = 1
-plotIt(image, sigma, threshold, spread, dt=10)
+plt.savefig("out/chris_edges.pdf")
+plotIt(image, sigma, threshold, spread, dt=30)
